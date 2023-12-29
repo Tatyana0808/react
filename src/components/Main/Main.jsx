@@ -1,4 +1,4 @@
-import Column from "./components/Column/Column";
+import Column from "../Column/Column";
 
 function Main(){
     return (<main className="main">

@@ -15,7 +15,7 @@ function App() {
     <PopBrowse/>
     <PopExit/>
     <PopNewCard/>
-    <Header />
+    <Header/>
     <Main/>
   
 
