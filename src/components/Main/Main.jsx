@@ -1,3 +1,4 @@
+import { cardList } from "../../data";
 import Column from "../Column/Column";
 const statusList = [
   "Без статуса",
@@ -12,9 +13,13 @@ function Main(){
     <div className="container">
       <div className="main__block">
         <div className="main__content">
-          {statusList.map((item) => (<Column 
+          {statusList.map((item) => (
+          <Column 
           key={item}
-          title={item}/>)
+          name={item}
+          cardList={cardList.filter((card) => card.status === item)}
+          />
+          )
           )}
         
           
