@@ -7,11 +7,20 @@ import './App.css';
 import PopExit from './components/PopUp/PopExit/PopExit';
 import PopNewCard from './components/PopUp/PopNewCard/PopNewCard';
 import Main from './components/Main/Main';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { cardList } from './data';
 
 function App() {
   const [cards, setCards] = useState(cardList);
+  const [isLoaded, setIsLoaded] = useState(true);
+
+  useEffect(()=> {
+   setTimeout(()=>{
+    setIsLoaded(false);
+   }, 2000)
+  }, [])
+
+
   function addCard() {
     setCards([
       ...cards,
@@ -33,7 +42,7 @@ function App() {
     <PopExit/>
     <PopNewCard/>
     <Header addCard={addCard}/>
-    <Main cardList = {cards}/>
+    <Main isLoaded={isLoaded} cardList = {cards}/>
   
 
   </Wrapper>);
