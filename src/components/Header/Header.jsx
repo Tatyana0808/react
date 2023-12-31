@@ -1,5 +1,5 @@
 import { useState } from "react";
-function Header(){
+function Header({addCard}){
   const [isOpened,setIsOpened] = useState(false);
   function togglePopUp() {
     setIsOpened((prev) => !prev)
@@ -19,8 +19,8 @@ function Header(){
           </a>
         </div>
         <nav className="header__nav">
-          <button className="header__btn-main-new _hover01" id="btnMainNew">
-            <a href="#popNewCard">Создать новую задачу</a>
+          <button className="header__btn-main-new _hover01" id="btnMainNew" onClick={addCard}>
+            Создать новую задачу
           </button>
           <a href="#" className="header__user _hover02" onClick={togglePopUp}>
             Ivan Ivanov
