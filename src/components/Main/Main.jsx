@@ -18,7 +18,7 @@ function Main({cardList,isLoaded}){
             statusList.map((item) => (
               <Column 
               key={item}
-              name={item}
+              title={item}
               cardList={cardList.filter((card) => card.status === item)}
               />
               )
