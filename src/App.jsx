@@ -24,7 +24,7 @@ function App() {
   function addCard() {
     setCards([
       ...cards,
-      {
+      { 
         id: cards.length + 1,
         theme: "Web Design",
         title: "Название задачи",
