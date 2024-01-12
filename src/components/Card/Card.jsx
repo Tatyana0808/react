@@ -1,6 +1,9 @@
+import { CardItem } from "./Card.styled";
+
 function Card({name, theme, date}){
     return(
-        <div className="cards__item">
+        
+          <CardItem>
                 <div className="cards__card card">
                   <div className="card__group">
                     <div className="card__theme _orange">
@@ -51,7 +54,8 @@ function Card({name, theme, date}){
                     </div>
                   </div>
                 </div>
-              </div>
+              
+          </CardItem>
     )
 }
 export default Card;
