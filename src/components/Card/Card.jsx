@@ -1,15 +1,24 @@
-import { CardItem, CardWrapper } from "./Card.styled";
+import { CardItem, CardTheme, CardThemeText, CardWrapper } from "./Card.styled";
 
 function Card({name, theme, date}){
+  let color;
+  switch(theme){
+    case "Web Design":
+      color = "_orange";
+      break;
+    case "Copywriting":
+      color = "_purple";
+      break;
+  }
     return(
         
           <CardItem>
                 
                 <CardWrapper>  
                   <div className="card__group">
-                    <div className="card__theme _orange">
-                      <p className="_orange">{theme}</p>
-                    </div>
+                      <CardTheme $themeColor={color}>
+                        <CardThemeText>{theme}</CardThemeText>
+                      </CardTheme>
                     <a href="#popBrowse" target="_self">
                       <div className="card__btn">
                         <div />
