@@ -1,10 +1,11 @@
-import { CardItem } from "./Card.styled";
+import { CardItem, CardWrapper } from "./Card.styled";
 
 function Card({name, theme, date}){
     return(
         
           <CardItem>
-                <div className="cards__card card">
+                
+                <CardWrapper>  
                   <div className="card__group">
                     <div className="card__theme _orange">
                       <p className="_orange">{theme}</p>
@@ -53,7 +54,7 @@ function Card({name, theme, date}){
                       <p>{date}</p>
                     </div>
                   </div>
-                </div>
+                </CardWrapper>
               
           </CardItem>
     )
