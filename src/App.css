@@ -802,8 +802,8 @@ body {
   padding: 25px 0 49px; */
 }
 .main__content {
-  width: 100%;
-  display: flex;
+  /* width: 100%;
+  display: flex; */
 }
 .main__column {
   /* width: 20%;
