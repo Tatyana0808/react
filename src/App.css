@@ -806,9 +806,9 @@ body {
   display: flex;
 }
 .main__column {
-  width: 20%;
+  /* width: 20%;
   margin: 0 auto;
-  display: block;
+  display: block; */
 }
 
 .column__title {
