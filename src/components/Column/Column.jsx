@@ -1,13 +1,14 @@
 import Card from "../Card/Card";
-import { MainColumn } from "./Column.styled";
+import { ColumnTitle, MainColumn } from "./Column.styled";
 
 function Column({ title, cardList }) {
   return (
 
     <MainColumn>
-      <div className="column__title">
+
+      <ColumnTitle >
         <p>{title}</p>
-      </div>
+      </ColumnTitle>
       <div className="cards">
         {cardList.map((card) => (
           <Card name={card.title}

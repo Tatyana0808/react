@@ -812,8 +812,8 @@ body {
 }
 
 .column__title {
-  padding: 0 10px;
-  margin: 15px 0;
+  /* padding: 0 10px;
+  margin: 15px 0; */
 }
 .column__title p {
   color: #94A6BE;
