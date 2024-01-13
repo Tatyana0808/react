@@ -1,7 +1,10 @@
+import { Container } from "../../Common/Common.styled";
+
 function PopNewCard (){
     return (
         <div className="pop-new-card" id="popNewCard">
-    <div className="pop-new-card__container">
+    
+    <Container>  
       <div className="pop-new-card__block">
         <div className="pop-new-card__content">
           <h3 className="pop-new-card__ttl">Создание задачи</h3>
@@ -150,7 +153,7 @@ function PopNewCard (){
           </button>
         </div>
       </div>
-    </div>
+    </Container>
   </div>
     )
 }

@@ -1,5 +1,6 @@
 
 import Column from "../Column/Column";
+import { Container } from "../Common/Common.styled";
 const statusList = [
   "Без статуса",
   "Нужно сделать",
@@ -10,7 +11,8 @@ const statusList = [
 ];
 function Main({cardList,isLoaded}){
     return (<main className="main">
-    <div className="container">
+    
+    <Container>  
       <div className="main__block">
         <div className="main__content">
           {
@@ -29,7 +31,7 @@ function Main({cardList,isLoaded}){
           
         </div>
       </div>
-    </div>
+    </Container>
   </main>)
 }
 export default Main;
