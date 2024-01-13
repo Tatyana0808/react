@@ -1,4 +1,4 @@
-* {
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -23,7 +23,7 @@ button,
 
 ul li {
   list-style: none;
-}
+} */
 
 @keyframes card-animation {
   0% {
@@ -52,10 +52,10 @@ body {
 }
 
 .container {
-  max-width: 1260px;
+  /* max-width: 1260px;
   width: 100%;
   margin: 0 auto;
-  padding: 0 30px;
+  padding: 0 30px; */
 }
 
 ._hover01:hover {

@@ -9,6 +9,7 @@ import PopNewCard from './components/PopUp/PopNewCard/PopNewCard';
 import Main from './components/Main/Main';
 import { useEffect, useState } from 'react';
 import { cardList } from './data';
+import { GlobalStyle } from './Global.styled';
 
 function App() {
   const [cards, setCards] = useState(cardList);
@@ -37,16 +38,21 @@ function App() {
   }
 
 
-  return (<Wrapper>
-    <PopBrowse/>
-    <PopExit/>
-    <PopNewCard/>
-    <Header addCard={addCard}/>
-    <Main isLoaded={isLoaded} cardList = {cards}/>
+  return (
+  <>
+   <GlobalStyle/> 
+    <Wrapper>
+     <PopBrowse/>
+     <PopExit/>
+     <PopNewCard/>
+     <Header addCard={addCard}/>
+     <Main isLoaded={isLoaded} cardList = {cards}/>
   
 
-  </Wrapper>);
-
+    </Wrapper>
+  </>
+  );
+  
 
 
 }

@@ -9,6 +9,10 @@ function Card({name, theme, date}){
     case "Copywriting":
       color = "_purple";
       break;
+    case "Research":
+      color = "_green";
+      break;
+      
   }
     return(
         
