@@ -1,6 +1,7 @@
 
 import Column from "../Column/Column";
 import { Container } from "../Common/Common.styled";
+import { MainBlock } from "./Main.styled";
 const statusList = [
   "Без статуса",
   "Нужно сделать",
@@ -13,7 +14,8 @@ function Main({cardList,isLoaded}){
     return (<main className="main">
     
     <Container>  
-      <div className="main__block">
+      
+      <MainBlock> 
         <div className="main__content">
           {
             isLoaded? 'Loading' : 
@@ -30,7 +32,7 @@ function Main({cardList,isLoaded}){
         
           
         </div>
-      </div>
+        </MainBlock>
     </Container>
   </main>)
 }
