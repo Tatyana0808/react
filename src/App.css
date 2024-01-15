@@ -740,7 +740,7 @@ body {
   justify-content: center; */
 }
 .header__btn-main-new {
-  width: 178px;
+  /* width: 178px;
   height: 30px;
   border-radius: 4px;
   background-color: #565EEF;
@@ -749,7 +749,7 @@ body {
   font-size: 14px;
   line-height: 1;
   font-weight: 500;
-  margin-right: 20px;
+  margin-right: 20px; */
 }
 .header__btn-main-new a {
   color: #FFFFFF;
@@ -1002,7 +1002,7 @@ body {
     width: 100%;
     padding: 0 16px;
   }
-  .header__btn-main-new {
+  /* .header__btn-main-new {
     z-index: 3;
     position: fixed;
     left: 16px;
@@ -1012,7 +1012,7 @@ body {
     height: 40px;
     border-radius: 4px;
     margin-right: 0;
-  }
+  } */
   .pop-new-card__container {
     padding: 0;
     justify-content: flex-start;

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Container } from "../Common/Common.styled";
-import { HeaderBlock, HeaderWrapper,HeaderNav,HeaderLogo } from "./Header.styled";
+import { HeaderBlock, HeaderWrapper,HeaderNav,HeaderLogo, HeaderBtnMainNew } from "./Header.styled";
 function Header({ addCard }) {
   const [isOpened, setIsOpened] = useState(false);
   function togglePopUp() {
@@ -19,16 +19,18 @@ function Header({ addCard }) {
               <img src="images/logo.png" alt="logo" />
             </a>
           </HeaderLogo>
-          <div className="header__logo _dark">
+          <HeaderLogo>
             <a href="" target="_self">
               <img src="images/logo_dark.png" alt="logo" />
             </a>
-          </div>
+          </HeaderLogo>
           
           <HeaderNav>  
-            <button className="header__btn-main-new _hover01" id="btnMainNew" onClick={addCard}>
+            
+            <HeaderBtnMainNew id="btnMainNew"onClick={addCard}>
+               
               Создать новую задачу
-            </button>
+            </HeaderBtnMainNew>
             <a href="#" className="header__user _hover02" onClick={togglePopUp}>
               Ivan Ivanov
             </a>
