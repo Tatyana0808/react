@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Container } from "../Common/Common.styled";
-import { HeaderBlock, HeaderWrapper,HeaderNav } from "./Header.styled";
+import { HeaderBlock, HeaderWrapper,HeaderNav,HeaderLogo } from "./Header.styled";
 function Header({ addCard }) {
   const [isOpened, setIsOpened] = useState(false);
   function togglePopUp() {
@@ -13,11 +13,12 @@ function Header({ addCard }) {
       <Container>
         
         <HeaderBlock > 
-          <div className="header__logo _show _light">
+          <HeaderLogo>
+          
             <a href="" target="_self">
               <img src="images/logo.png" alt="logo" />
             </a>
-          </div>
+          </HeaderLogo>
           <div className="header__logo _dark">
             <a href="" target="_self">
               <img src="images/logo_dark.png" alt="logo" />

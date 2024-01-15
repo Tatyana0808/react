@@ -25,3 +25,7 @@ export const HeaderNav = styled.div`
   align-items: center;
   justify-content: center;
 `;
+
+export const HeaderLogo = styled.div`
+  width: 85px;
+`;
