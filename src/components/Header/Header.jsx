@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Container } from "../Common/Common.styled";
-import { HeaderBlock, HeaderWrapper } from "./Header.styled";
+import { HeaderBlock, HeaderWrapper,HeaderNav } from "./Header.styled";
 function Header({ addCard }) {
   const [isOpened, setIsOpened] = useState(false);
   function togglePopUp() {
@@ -23,7 +23,8 @@ function Header({ addCard }) {
               <img src="images/logo_dark.png" alt="logo" />
             </a>
           </div>
-          <nav className="header__nav">
+          
+          <HeaderNav>  
             <button className="header__btn-main-new _hover01" id="btnMainNew" onClick={addCard}>
               Создать новую задачу
             </button>
@@ -46,7 +47,7 @@ function Header({ addCard }) {
               </button>
             </div>}
 
-          </nav>
+          </HeaderNav>
           </HeaderBlock>
       </Container>
     </HeaderWrapper>
