@@ -58,3 +58,13 @@ export const HeaderBtnMainNew = styled.button`
     margin-right: 0;
   }
 `;
+export const HeaderUser = styled.a`
+  height: 20px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  line-height: 20px;
+  color: #565EEF;
+`;

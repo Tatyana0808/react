@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Container } from "../Common/Common.styled";
-import { HeaderBlock, HeaderWrapper,HeaderNav,HeaderLogo, HeaderBtnMainNew } from "./Header.styled";
+import { HeaderBlock, HeaderWrapper, HeaderNav, HeaderLogo, HeaderBtnMainNew, HeaderUser } from "./Header.styled";
 function Header({ addCard }) {
   const [isOpened, setIsOpened] = useState(false);
   function togglePopUp() {
@@ -11,10 +11,10 @@ function Header({ addCard }) {
     <HeaderWrapper>
 
       <Container>
-        
-        <HeaderBlock > 
+
+        <HeaderBlock >
           <HeaderLogo>
-          
+
             <a href="" target="_self">
               <img src="images/logo.png" alt="logo" />
             </a>
@@ -24,16 +24,18 @@ function Header({ addCard }) {
               <img src="images/logo_dark.png" alt="logo" />
             </a>
           </HeaderLogo>
-          
-          <HeaderNav>  
-            
-            <HeaderBtnMainNew id="btnMainNew"onClick={addCard}>
-               
+
+          <HeaderNav>
+
+            <HeaderBtnMainNew id="btnMainNew" onClick={addCard}>
+
               Создать новую задачу
             </HeaderBtnMainNew>
-            <a href="#" className="header__user _hover02" onClick={togglePopUp}>
+            
+            <HeaderUser 
+            onClick={togglePopUp}>
               Ivan Ivanov
-            </a>
+            </HeaderUser>
             {isOpened && <div
               className="header__pop-user-set pop-user-set"
 
@@ -51,7 +53,7 @@ function Header({ addCard }) {
             </div>}
 
           </HeaderNav>
-          </HeaderBlock>
+        </HeaderBlock>
       </Container>
     </HeaderWrapper>
   )
