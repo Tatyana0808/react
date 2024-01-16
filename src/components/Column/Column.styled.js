@@ -11,7 +11,10 @@ export const ColumnTitle = styled.div`
 
 `;
  export const Cards = styled.div`
+    //width: 100%;
+    //display: flex;
+    //overflow-y: auto;
     width: 100%;
-    display: flex;
-    overflow-y: auto;
+    display: block;
+    position: relative;
  `;

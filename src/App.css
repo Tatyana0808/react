@@ -824,9 +824,9 @@ body {
 }
 
 .cards {
-  width: 100%;
+  /* width: 100%;
   display: block;
-  position: relative;
+  position: relative; */
 }
 .cards__item {
   /* padding: 5px;
