@@ -33,3 +33,11 @@ export const PopExitBlock = styled.div`
   border: 0.7px solid #D4DBE5;
   box-shadow: 0px 4px 67px -12px rgba(0, 0, 0, 0.13);
 `;
+export const PopExitTtl = styled.div`
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 30px;
+  letter-spacing: -0.4px;
+  margin-bottom: 20px;
+`;
