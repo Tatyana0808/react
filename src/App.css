@@ -866,12 +866,12 @@ body {
   line-height: 10px;
 }
 .card__btn {
-  width: 24px;
+  /* width: 24px;
   height: 24px;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  padding: 2px;
+  padding: 2px; */
 }
 .card__btn div {
   width: 4px;
