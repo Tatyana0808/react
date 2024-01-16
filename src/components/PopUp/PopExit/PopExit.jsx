@@ -1,4 +1,4 @@
-import { PopExitContainer, PopExitWrapper } from "./PopExit.styled";
+import { PopExitBlock, PopExitContainer, PopExitWrapper } from "./PopExit.styled";
 
 function PopExit() {
   return (
@@ -7,7 +7,7 @@ function PopExit() {
     id="popExit">
       <PopExitContainer>
 
-        <div className="pop-exit__block">
+        <PopExitBlock>
           <div className="pop-exit__ttl">
             <h2>Выйти из аккаунта?</h2>
           </div>
@@ -21,7 +21,7 @@ function PopExit() {
               </button>
             </div>
           </form>
-        </div>
+        </PopExitBlock>
       </PopExitContainer>
     </PopExitWrapper>
   )
