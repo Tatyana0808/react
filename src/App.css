@@ -887,11 +887,11 @@ body {
   margin-bottom: 10px;
 }
 .card__content {
-  height: 64px;
+  /* height: 64px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: space-between; */
 }
 .card__date {
   display: flex;

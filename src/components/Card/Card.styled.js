@@ -65,3 +65,11 @@ export const CardBtnDiv = styled.div`
   border-radius: 50%;
   background-color: #94A6BE
 `;
+
+export const CardContent = styled.div`
+  height: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+`;
