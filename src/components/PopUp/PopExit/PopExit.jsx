@@ -1,6 +1,8 @@
+import { PopExitWrapper } from "./PopExit.styled";
+
 function PopExit() {
   return (
-    <div className="pop-exit"
+    <PopExitWrapper
      
     id="popExit">
       <div className="pop-exit__container">
@@ -21,7 +23,7 @@ function PopExit() {
           </form>
         </div>
       </div>
-    </div>
+    </PopExitWrapper>
   )
 }
 export default PopExit;
