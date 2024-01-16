@@ -73,3 +73,10 @@ export const CardContent = styled.div`
   align-items: flex-start;
   justify-content: space-between;
 `;
+
+export const CardDate = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+`

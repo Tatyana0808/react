@@ -1,4 +1,4 @@
-import { CardBtn, CardBtnDiv, CardContent, CardGroup, CardItem, CardTheme, CardThemeText, CardWrapper } from "./Card.styled";
+import { CardBtn, CardBtnDiv, CardContent, CardDate, CardGroup, CardItem, CardTheme, CardThemeText, CardWrapper } from "./Card.styled";
 
 function Card({name, theme, date}){
   let color;
@@ -38,7 +38,8 @@ function Card({name, theme, date}){
                     <a href="" target="_blank">
                       <h3 className="card__title">{name}</h3>
                     </a>
-                    <div className="card__date">
+                    
+                    <CardDate> 
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width={13}
@@ -68,7 +69,7 @@ function Card({name, theme, date}){
                         </defs>
                       </svg>
                       <p>{date}</p>
-                    </div>
+                    </CardDate> 
                   </CardContent> 
                 </CardWrapper>
               
