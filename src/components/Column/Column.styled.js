@@ -10,3 +10,8 @@ export const ColumnTitle = styled.div`
   margin: 15px 0;
 
 `;
+ export const Cards = styled.div`
+    width: 100%;
+    display: flex;
+    overflow-y: auto;
+ `;

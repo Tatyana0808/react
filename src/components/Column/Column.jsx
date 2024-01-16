@@ -1,5 +1,5 @@
 import Card from "../Card/Card";
-import { ColumnTitle, MainColumn } from "./Column.styled";
+import { Cards, ColumnTitle, MainColumn } from "./Column.styled";
 
 function Column({ title, cardList }) {
   return (
@@ -9,7 +9,8 @@ function Column({ title, cardList }) {
       <ColumnTitle >
         <p>{title}</p>
       </ColumnTitle>
-      <div className="cards">
+      
+      <Cards>  
         {cardList.map((card) => (
           <Card name={card.title}
             theme={card.theme}
@@ -19,7 +20,7 @@ function Column({ title, cardList }) {
         ))}
 
 
-      </div>
+      </Cards>
     </MainColumn>
   )
 }
