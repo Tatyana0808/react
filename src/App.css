@@ -78,12 +78,12 @@ body {
   color: #FFFFFF;
 }
 
-.pop-user-set:target,
+/* .pop-user-set:target,
 .pop-exit:target,
 .pop-new-card:target,
 .pop-browse:target {
   display: block;
-}
+} */
 
 ._orange {
   background-color: #FFE4C2;
