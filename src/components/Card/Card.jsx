@@ -1,4 +1,4 @@
-import { CardBtn, CardGroup, CardItem, CardTheme, CardThemeText, CardWrapper } from "./Card.styled";
+import { CardBtn, CardBtnDiv, CardGroup, CardItem, CardTheme, CardThemeText, CardWrapper } from "./Card.styled";
 
 function Card({name, theme, date}){
   let color;
@@ -27,9 +27,9 @@ function Card({name, theme, date}){
                     <a href="#popBrowse" target="_self">
                       
                       <CardBtn>  
-                        <div />
-                        <div />
-                        <div />
+                        <CardBtnDiv/>
+                        <CardBtnDiv/>
+                        <CardBtnDiv/>
                       </CardBtn>
                     </a>
                   </CardGroup>

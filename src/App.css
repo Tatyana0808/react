@@ -874,10 +874,10 @@ body {
   padding: 2px; */
 }
 .card__btn div {
-  width: 4px;
+  /* width: 4px;
   height: 4px;
   border-radius: 50%;
-  background-color: #94A6BE;
+  background-color: #94A6BE; */
 }
 .card__title {
   font-size: 14px;
