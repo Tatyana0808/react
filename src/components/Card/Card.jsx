@@ -1,4 +1,4 @@
-import { CardBtn, CardBtnDiv, CardContent, CardDate, CardGroup, CardItem, CardTheme, CardThemeText, CardWrapper } from "./Card.styled";
+import { CardBtn, CardBtnDiv, CardContent, CardDate, CardDateSvg, CardGroup, CardItem, CardTheme, CardThemeText, CardWrapper } from "./Card.styled";
 
 function Card({name, theme, date}){
   let color;
@@ -40,7 +40,7 @@ function Card({name, theme, date}){
                     </a>
                     
                     <CardDate> 
-                      <svg
+                      <CardDateSvg
                         xmlns="http://www.w3.org/2000/svg"
                         width={13}
                         height={13}
@@ -67,7 +67,7 @@ function Card({name, theme, date}){
                             <rect width={13} height={13} fill="white" />
                           </clipPath>
                         </defs>
-                      </svg>
+                      </CardDateSvg>
                       <p>{date}</p>
                     </CardDate> 
                   </CardContent> 

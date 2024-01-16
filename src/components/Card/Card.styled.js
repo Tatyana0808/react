@@ -63,7 +63,7 @@ export const CardBtnDiv = styled.div`
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background-color: #94A6BE
+  background-color: #94A6BE;
 `;
 
 export const CardContent = styled.div`
@@ -79,4 +79,8 @@ export const CardDate = styled.div`
   align-items: center;
   justify-content: flex-start;
 
-`
+`;
+
+export const CardDateSvg = styled.svg`
+  width: 13px;
+`;

@@ -899,7 +899,7 @@ body {
   justify-content: flex-start;*/
 } 
 .card__date svg {
-  width: 13px;
+  /* width: 13px; */
 }
 .card__date p {
   margin-left: 6px;
