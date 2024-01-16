@@ -1,4 +1,4 @@
-import { CardItem, CardTheme, CardThemeText, CardWrapper } from "./Card.styled";
+import { CardGroup, CardItem, CardTheme, CardThemeText, CardWrapper } from "./Card.styled";
 
 function Card({name, theme, date}){
   let color;
@@ -19,7 +19,8 @@ function Card({name, theme, date}){
           <CardItem>
                 
                 <CardWrapper>  
-                  <div className="card__group">
+                  
+                  <CardGroup>  
                       <CardTheme $themeColor={color}>
                         <CardThemeText>{theme}</CardThemeText>
                       </CardTheme>
@@ -30,7 +31,7 @@ function Card({name, theme, date}){
                         <div />
                       </div>
                     </a>
-                  </div>
+                  </CardGroup>
                   <div className="card__content">
                     <a href="" target="_blank">
                       <h3 className="card__title">{name}</h3>
