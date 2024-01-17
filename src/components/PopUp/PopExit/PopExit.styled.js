@@ -12,7 +12,7 @@ export const PopExitWrapper = styled.div`
   z-index: 5;
 
   &:target{
-    display:block
+    display: block;
   }
 `;
 export const PopExitContainer = styled.div`
