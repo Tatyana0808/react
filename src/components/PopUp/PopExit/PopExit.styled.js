@@ -10,6 +10,10 @@ export const PopExitWrapper = styled.div`
   top: 0;
   left: 0;
   z-index: 5;
+
+  &:target{
+    display:block
+  }
 `;
 export const PopExitContainer = styled.div`
   width: 100%;
