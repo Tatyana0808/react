@@ -1,15 +1,12 @@
 
-import Header from './components/Header/Header';
 
-import Wrapper from './components/Wrapper/Wrapper';
-import PopBrowse from './components/PopUp/PopBrowse/PopBrowse';
-import './App.css';
-import PopExit from './components/PopUp/PopExit/PopExit';
-import PopNewCard from './components/PopUp/PopNewCard/PopNewCard';
-import Main from './components/Main/Main';
 import { useEffect, useState } from 'react';
 import { cardList } from './data';
 import { GlobalStyle } from './Global.styled';
+import MainPage from './pages/MainPage';
+import { Route, Routes } from 'react-router-dom';
+import { appRoutes } from './lib/appRoutes';
+import CardPage from './pages/CardPage';
 
 function App() {
   const [cards, setCards] = useState(cardList);
@@ -41,15 +38,15 @@ function App() {
   return (
   <>
    <GlobalStyle/> 
-    <Wrapper>
-     <PopBrowse/>
-     <PopExit/>
-     <PopNewCard/>
-     <Header addCard={addCard}/>
-     <Main isLoaded={isLoaded} cardList = {cards}/>
-  
+   <Routes>
+    <Route path={appRoutes.CARD} element={<CardPage/>}/>
+    <Route path={appRoutes.MAIN} element={<MainPage/>}/>
+    <Route path={appRoutes.EXIT} element={<PopExitPage/>}/>
+    <Route path={appRoutes.LOGIN} element={<LoginPage/>}/>
+    <Route path={appRoutes.REGISTER} element={<RegisterPage/>}/>
+    <Route path={appRoutes.NOT_FOUND} element={<NotFoundPage/>}/>
+   </Routes>
 
-    </Wrapper>
   </>
   );
   
