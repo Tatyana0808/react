@@ -46,8 +46,10 @@ function App() {
       <GlobalStyle />
       <Routes>
         <Route element={<PrivateRoute user={user} />}>
-          
-          <Route path={appRoutes.MAIN} element={<MainPage />} />
+
+          <Route path={appRoutes.MAIN} element={<MainPage />} >
+            <Route path={appRoutes.CARD} elemtnt={<CardPage />} />
+          </Route>
         </Route>
         <Route path={appRoutes.CARD} element={<CardPage />} />
         <Route path={appRoutes.EXIT} element={<PopExitPage />} />
