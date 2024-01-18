@@ -1,25 +1,46 @@
+import { CardBtn, CardBtnDiv, CardContent, CardDate, CardDateSvg, CardGroup, CardItem, CardTheme, CardThemeText, CardWrapper } from "./Card.styled";
+
 function Card({name, theme, date}){
+  let color;
+  switch(theme){
+    case "Web Design":
+      color = "_orange";
+      break;
+    case "Copywriting":
+      color = "_purple";
+      break;
+    case "Research":
+      color = "_green";
+      break;
+      
+  }
     return(
-        <div className="cards__item">
-                <div className="cards__card card">
-                  <div className="card__group">
-                    <div className="card__theme _orange">
-                      <p className="_orange">{theme}</p>
-                    </div>
+        
+          <CardItem>
+                
+                <CardWrapper>  
+                  
+                  <CardGroup>  
+                      <CardTheme $themeColor={color}>
+                        <CardThemeText>{theme}</CardThemeText>
+                      </CardTheme>
                     <a href="#popBrowse" target="_self">
-                      <div className="card__btn">
-                        <div />
-                        <div />
-                        <div />
-                      </div>
+                      
+                      <CardBtn>  
+                        <CardBtnDiv/>
+                        <CardBtnDiv/>
+                        <CardBtnDiv/>
+                      </CardBtn>
                     </a>
-                  </div>
-                  <div className="card__content">
+                  </CardGroup>
+                  
+                  <CardContent> 
                     <a href="" target="_blank">
                       <h3 className="card__title">{name}</h3>
                     </a>
-                    <div className="card__date">
-                      <svg
+                    
+                    <CardDate> 
+                      <CardDateSvg
                         xmlns="http://www.w3.org/2000/svg"
                         width={13}
                         height={13}
@@ -46,12 +67,13 @@ function Card({name, theme, date}){
                             <rect width={13} height={13} fill="white" />
                           </clipPath>
                         </defs>
-                      </svg>
+                      </CardDateSvg>
                       <p>{date}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                    </CardDate> 
+                  </CardContent> 
+                </CardWrapper>
+              
+          </CardItem>
     )
 }
 export default Card;
