@@ -1,11 +1,10 @@
-import Header from './components/Header/Header';
-
-import Wrapper from './components/Wrapper/Wrapper';
+import Header from '../components/Header/Header'
+import Wrapper from '../components/Wrapper/Wrapper';
 //import PopBrowse from './components/PopUp/PopBrowse/PopBrowse';
-import './App.css';
+import '../App';
 //import PopExit from './components/PopUp/PopExit/PopExit';
 //import PopNewCard from './components/PopUp/PopNewCard/PopNewCard';
-import Main from './components/Main/Main';
+import Main from '../components/Main/Main'
 import { appRoutes } from '../lib/appRoutes';
 import { Link, Outlet } from 'react-router-dom';
 
