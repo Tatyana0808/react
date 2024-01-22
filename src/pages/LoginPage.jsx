@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom"
 import "./signin.css"
+import { appRoutes } from "../lib/appRoutes"
 export default function LoginPage() {
     return (
         <div className="wrapper">
@@ -23,10 +25,12 @@ export default function LoginPage() {
                               placeholder="Пароль"
                                     
                             />
-                                    <button className="modal__btn-enter _hover01" id="btnEnter"><a href="../main.html">Войти</a></button>
+                                    <button className="modal__btn-enter _hover01" id="btnEnter">
+                                        <Link to={appRoutes.MAIN}>Войти</Link>
+                                        </button>
                                     <div className="modal__form-group">
                                         <p>Нужно зарегистрироваться?</p>
-                                        <a href="signup.html">Регистрируйтесь здесь</a>
+                                        <Link to={appRoutes.REGISTER}>Регистрируйтесь здесь</Link>
                                     </div>
                         </form>
                     </div>
