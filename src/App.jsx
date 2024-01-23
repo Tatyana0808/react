@@ -14,7 +14,7 @@ import LoginPage from './pages/LoginPage';
 //import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
-  let user = false;
+  let user = true;
   const [cards, setCards] = useState(cardList);
   const [isLoaded,setIsLoaded] = useState(true);
 
