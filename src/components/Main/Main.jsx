@@ -10,7 +10,7 @@ const statusList = [
   "Готово",
 
 ];
-function Main({ cardList, isLoaded }) {
+function Main({ cards, isLoaded }) {
   return (<main className="main">
 
     <Container>
@@ -24,7 +24,7 @@ function Main({ cardList, isLoaded }) {
                 <Column
                   key={item}
                   title={item}
-                  cardList={cardList.filter((card) => card.status === item)}
+                  cardList={cards.filter((card) => card.status === item)}
                 />
               )
               )
