@@ -8,7 +8,7 @@ import Main from '../components/Main/Main'
 import { appRoutes } from '../lib/appRoutes';
 import { Link, Outlet } from 'react-router-dom';
 
-export default function MainPage({addCard,isLoaded,cards}) {
+export default function MainPage({ addCard, isLoaded, cards }) {
     return (
         <>
             <Wrapper>
