@@ -47,7 +47,10 @@ function App() {
       <Routes>
         <Route element={<PrivateRoute user={user} />}>
 
-          <Route path={appRoutes.MAIN} element={<MainPage isLoaded={isLoaded} cardList={cards} addCard={addCard}/>} >
+          <Route path={appRoutes.MAIN} element={<MainPage 
+           isLoaded={isLoaded}
+           cards={cards} 
+           addCard={addCard}/>} >
             <Route path={`${appRoutes.CARD}/:cardId`} elemtnt={<CardPage />} />
           </Route>
         </Route>
