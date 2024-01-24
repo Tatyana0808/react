@@ -51,7 +51,7 @@ function App() {
            isLoaded={isLoaded}
            cards={cards} 
            addCard={addCard}/>} >
-            <Route path={`${appRoutes.CARD}/:cardId`} elemtnt={<CardPage />} />
+            <Route path={`${appRoutes.CARD}/:cardId`} element={<CardPage />} />
           </Route>
         </Route>
         <Route path={appRoutes.CARD} element={<CardPage />} />
