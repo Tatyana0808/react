@@ -23,3 +23,20 @@ import { styled } from "styled-components";
   justify-content: center;
   background: rgba(0, 0, 0, 0.4);
  `;
+
+ export const PopBrowseBlock = styled.div `
+  display: block;
+  margin: 0 auto;
+  background-color: #FFFFFF;
+  max-width: 630px;
+  width: 100%;
+  padding: 40px 30px 38px;
+  border-radius: 10px;
+  border: 0.7px solid #D4DBE5;
+  position: relative;
+ `;
+
+ export const PopBrowseContents = styled.div `
+   display: block;
+   text-align: left;
+ `;

@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { PopBrowseContainer, PopBrowseContent } from "./PopBrowse.styled";
+import { PopBrowseBlock, PopBrowseContainer, PopBrowseContent, PopBrowseContents } from "./PopBrowse.styled";
 
 
 function PopBrowse() {
@@ -8,8 +8,8 @@ function PopBrowse() {
     <PopBrowseContent id="popBrowse">
       <PopBrowseContainer>
 
-        <div className="pop-browse__block">
-          <div className="pop-browse__content">
+        <PopBrowseBlock>
+          <PopBrowseContents>
             <div className="pop-browse__top-block">
               <h3 className="pop-browse__ttl">Название задачи:{cardId}</h3>
               <div className="categories__theme theme-top _orange _active-category">
@@ -188,8 +188,8 @@ function PopBrowse() {
                 <a href="#">Закрыть</a>
               </button>
             </div>
-          </div>
-        </div>
+          </PopBrowseContents>
+        </PopBrowseBlock>
       </PopBrowseContainer>
     </PopBrowseContent>
   )
