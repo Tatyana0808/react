@@ -1,9 +1,10 @@
 import { useParams } from "react-router-dom";
+import { PopBrowseContent } from "./PopBrowse";
 
 function PopBrowse() {
   let { cardId } = useParams();
   return (
-    <div className="pop-browse" id="popBrowse">
+    <PopBrowseContent id="popBrowse">
       <div className="pop-browse__container">
 
         <div className="pop-browse__block">
@@ -189,7 +190,7 @@ function PopBrowse() {
           </div>
         </div>
       </div>
-    </div>
+    </PopBrowseContent>
   )
 }
 export default PopBrowse;
