@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
-import { PopBrowseContent } from "./PopBrowse";
+import { PopBrowseContent } from "./PopBrowse.styled";
+
 
 function PopBrowse() {
   let { cardId } = useParams();
