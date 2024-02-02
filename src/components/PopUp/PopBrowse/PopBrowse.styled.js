@@ -47,3 +47,7 @@ import { styled } from "styled-components";
   justify-content: space-between;
   margin-bottom: 18px;
  `;
+
+ export const PopBrowseStatusStatus = styled.div `
+  margin-bottom: 11px;
+ `;

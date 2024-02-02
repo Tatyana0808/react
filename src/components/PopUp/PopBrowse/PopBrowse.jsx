@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { PopBrowseBlock, PopBrowseContainer, PopBrowseContent, PopBrowseContents, PopBrowseTopBlock } from "./PopBrowse.styled";
+import { PopBrowseBlock, PopBrowseContainer, PopBrowseContent, PopBrowseContents, PopBrowseStatusStatus, PopBrowseTopBlock } from "./PopBrowse.styled";
 
 
 function PopBrowse() {
@@ -16,7 +16,7 @@ function PopBrowse() {
                 <p className="_orange">Web Design</p>
               </div>
             </PopBrowseTopBlock>
-            <div className="pop-browse__status status">
+            <PopBrowseStatusStatus>
               <p className="status__p subttl">Статус</p>
               <div className="status__themes">
                 <div className="status__theme _hide">
@@ -35,7 +35,7 @@ function PopBrowse() {
                   <p>Готово</p>
                 </div>
               </div>
-            </div>
+            </PopBrowseStatusStatus>
             <div className="pop-browse__wrap">
               <form
                 className="pop-browse__form form-browse"

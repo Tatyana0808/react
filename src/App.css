@@ -658,7 +658,7 @@ body {
 }
 
 .status {
-  margin-bottom: 11px;
+  /* margin-bottom: 11px; */
 }
 .status__p {
   margin-bottom: 14px;
