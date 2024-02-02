@@ -40,3 +40,10 @@ import { styled } from "styled-components";
    display: block;
    text-align: left;
  `;
+
+ export const PopBrowseTopBlock = styled.div `
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+ `;

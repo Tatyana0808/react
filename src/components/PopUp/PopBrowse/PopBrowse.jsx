@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { PopBrowseBlock, PopBrowseContainer, PopBrowseContent, PopBrowseContents } from "./PopBrowse.styled";
+import { PopBrowseBlock, PopBrowseContainer, PopBrowseContent, PopBrowseContents, PopBrowseTopBlock } from "./PopBrowse.styled";
 
 
 function PopBrowse() {
@@ -10,12 +10,12 @@ function PopBrowse() {
 
         <PopBrowseBlock>
           <PopBrowseContents>
-            <div className="pop-browse__top-block">
+            <PopBrowseTopBlock>
               <h3 className="pop-browse__ttl">Название задачи:{cardId}</h3>
               <div className="categories__theme theme-top _orange _active-category">
                 <p className="_orange">Web Design</p>
               </div>
-            </div>
+            </PopBrowseTopBlock>
             <div className="pop-browse__status status">
               <p className="status__p subttl">Статус</p>
               <div className="status__themes">
