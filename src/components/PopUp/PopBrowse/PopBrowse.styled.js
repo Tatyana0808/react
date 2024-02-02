@@ -22,4 +22,4 @@ import { styled } from "styled-components";
   align-items: center;
   justify-content: center;
   background: rgba(0, 0, 0, 0.4);
- `
+ `;
