@@ -18,10 +18,13 @@ export default function LoginPage() {
 
 
 
-    const handleLogin = (e) => {
+    const  handleLogin = async (e) => {
         e.preventDefault()
-      login(loginData).then((data) => {
+     await login(loginData).then((data) => {
         console.log(data);
+      })
+      .catch((error) => {
+        console.warn(error)
       })
     }
 
@@ -44,7 +47,7 @@ export default function LoginPage() {
                         </div>
                         <form className="modal__form-login" id="formLogIn" action="#">
                             <input className="modal__input" 
-                            type="email" 
+                            type="text" 
                              
                             id="formlogin"
                              placeholder="Эл. почта"

@@ -2,25 +2,25 @@ const token = 'ksdfsksdfjfsdjk'
 const userURL = 'https://wedev-api.sky.pro/api/user'
 
 
-export async function login({ login, passwod }) {
-    const respons = fetch(userURL + '/login', {
+export async function login({ login, password }) {
+    const response = await fetch(userURL + '/login', {
         method: 'POST',
         bodi: JSON.stringify({
           login,
-          passwod,
+          password,
         })
     })
 
-    const data = await respons.json();
+    const data = await response.json();
     return data;
 }
 
 export async function getCards() {
-    const respons = await fetch("", {
+    const response = await fetch("", {
         headers: {
             Authorisation: `Bearer ${token}`,
         }
     });
-    const data = await respons.json();
+    const data = await response.json();
     return data;
 }
