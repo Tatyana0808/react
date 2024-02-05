@@ -1,7 +1,26 @@
 import { Link } from "react-router-dom"
 import "./signin.css"
 import { appRoutes } from "../lib/appRoutes"
+import { useState } from "react"
+import { login } from "../api";
+
+
+
+
 export default function LoginPage() {
+
+    const loginForm = {
+        login: '',
+        password: '',
+    }
+
+    const [loginData, setloginData] = useState(loginForm);
+
+    const handleLogin = () => {
+      login().then((data) => {
+        console.log(data);
+      })
+    }
     return (
         <div className="wrapper">
             <div className="container-signin">
@@ -25,9 +44,9 @@ export default function LoginPage() {
                               placeholder="Пароль"
                                     
                             />
-                                    <button className="modal__btn-enter _hover01" id="btnEnter">
-                                        <Link to={appRoutes.MAIN}>Войти</Link>
-                                        </button>
+                                    <button className="modal__btn-enter _hover01" id="btnEnter" onClick={handleLogin}>
+                                        Войти
+                                    </button>
                                     <div className="modal__form-group">
                                         <p>Нужно зарегистрироваться?</p>
                                         <Link to={appRoutes.REGISTER}>Регистрируйтесь здесь</Link>
