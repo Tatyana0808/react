@@ -10,6 +10,7 @@ import  CardPage  from './pages/CardPage';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import RegisterPage from './pages/RegisterPage';
 import LoginPage from './pages/LoginPage';
+import { getTasks } from './api';
 //import PopExitPage from './pages/PopExitPage';
 //import NotFoundPage from './pages/NotFoundPage';
 
@@ -22,9 +23,8 @@ function App() {
   const [isLoaded,setIsLoaded] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => {
-      setIsLoaded(false);
-    }, 2000)
+   getTasks();
+   
   }, [])
 
 
@@ -50,7 +50,7 @@ function App() {
       <Routes>
         <Route element={<PrivateRoute user={userData} />}>
 
-          <Route path={appRoutes.MAIN} element={<MainPage 
+          <Route path={appRoutes.MAIN} element={<MainPage userData={userData}
            isLoaded={isLoaded}
            cards={cards} 
            addCard={addCard}/>} >
