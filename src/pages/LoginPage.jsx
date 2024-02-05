@@ -18,8 +18,9 @@ export default function LoginPage() {
 
 
 
-    const handleLogin = () => {
-      login().then((data) => {
+    const handleLogin = (e) => {
+        e.preventDefault()
+      login(loginData).then((data) => {
         console.log(data);
       })
     }
