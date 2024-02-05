@@ -1,17 +1,22 @@
-function popBrowse() {
-  return (
-    <div className="pop-browse" id="popBrowse">
-      <div className="pop-browse__container">
+import { useParams } from "react-router-dom";
+import { PopBrowseBlock, PopBrowseContainer, PopBrowseContent, PopBrowseContents, PopBrowseStatusStatus, PopBrowseTopBlock } from "./PopBrowse.styled";
 
-        <div className="pop-browse__block">
-          <div className="pop-browse__content">
-            <div className="pop-browse__top-block">
-              <h3 className="pop-browse__ttl">Название задачи</h3>
+
+function PopBrowse() {
+  let { cardId } = useParams();
+  return (
+    <PopBrowseContent id="popBrowse">
+      <PopBrowseContainer>
+
+        <PopBrowseBlock>
+          <PopBrowseContents>
+            <PopBrowseTopBlock>
+              <h3 className="pop-browse__ttl">Название задачи:{cardId}</h3>
               <div className="categories__theme theme-top _orange _active-category">
                 <p className="_orange">Web Design</p>
               </div>
-            </div>
-            <div className="pop-browse__status status">
+            </PopBrowseTopBlock>
+            <PopBrowseStatusStatus>
               <p className="status__p subttl">Статус</p>
               <div className="status__themes">
                 <div className="status__theme _hide">
@@ -30,7 +35,7 @@ function popBrowse() {
                   <p>Готово</p>
                 </div>
               </div>
-            </div>
+            </PopBrowseStatusStatus>
             <div className="pop-browse__wrap">
               <form
                 className="pop-browse__form form-browse"
@@ -183,10 +188,10 @@ function popBrowse() {
                 <a href="#">Закрыть</a>
               </button>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
+          </PopBrowseContents>
+        </PopBrowseBlock>
+      </PopBrowseContainer>
+    </PopBrowseContent>
   )
 }
-export default popBrowse;
+export default PopBrowse;

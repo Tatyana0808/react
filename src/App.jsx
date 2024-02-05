@@ -1,58 +1,69 @@
 
-import Header from './components/Header/Header';
 
-import Wrapper from './components/Wrapper/Wrapper';
-import PopBrowse from './components/PopUp/PopBrowse/PopBrowse';
-import './App.css';
-import PopExit from './components/PopUp/PopExit/PopExit';
-import PopNewCard from './components/PopUp/PopNewCard/PopNewCard';
-import Main from './components/Main/Main';
 import { useEffect, useState } from 'react';
 import { cardList } from './data';
 import { GlobalStyle } from './Global.styled';
+import  MainPage  from './pages/MainPage';
+import { Route, Routes } from 'react-router-dom';
+import { appRoutes } from './lib/appRoutes';
+import  CardPage  from './pages/CardPage';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import RegisterPage from './pages/RegisterPage';
+import LoginPage from './pages/LoginPage';
+//import PopExitPage from './pages/PopExitPage';
+//import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
+  let user = true;
   const [cards, setCards] = useState(cardList);
-  const [isLoaded, setIsLoaded] = useState(true);
+  const [isLoaded,setIsLoaded] = useState(true);
 
-  useEffect(()=> {
-   setTimeout(()=>{
-    setIsLoaded(false);
-   }, 2000)
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoaded(false);
+    }, 2000)
   }, [])
 
 
   function addCard() {
     setCards([
       ...cards,
-      { 
+      {
         id: cards.length + 1,
         theme: "Web Design",
         title: "Название задачи",
         date: "30.10.23",
         status: "Без статуса",
 
-   }
+      }
     ])
 
   }
 
 
   return (
-  <>
-   <GlobalStyle/> 
-    <Wrapper>
-     <PopBrowse/>
-     <PopExit/>
-     <PopNewCard/>
-     <Header addCard={addCard}/>
-     <Main isLoaded={isLoaded} cardList = {cards}/>
-  
+    <>
+      <GlobalStyle />
+      <Routes>
+        <Route element={<PrivateRoute user={user} />}>
 
-    </Wrapper>
-  </>
+          <Route path={appRoutes.MAIN} element={<MainPage 
+           isLoaded={isLoaded}
+           cards={cards} 
+           addCard={addCard}/>} >
+            <Route path={`${appRoutes.CARD}/:cardId`} element={<CardPage />} />
+          </Route>
+        </Route>
+        <Route path={appRoutes.CARD} element={<CardPage />} />
+        {/* <Route path={appRoutes.EXIT} element={<PopExitPage />} /> */}
+        <Route path={appRoutes.LOGIN} element={<LoginPage />} />
+        <Route path={appRoutes.REGISTER} element={<RegisterPage />} />
+        {/* <Route path={appRoutes.NOT_FOUND} element={<NotFoundPage />} /> */}
+      </Routes>
+
+    </>
   );
-  
+
 
 
 }
