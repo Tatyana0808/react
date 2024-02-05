@@ -14,13 +14,25 @@ export default function LoginPage() {
         password: '',
     }
 
-    const [loginData, setloginData] = useState(loginForm);
+    const [loginData, setLoginData] = useState(loginForm);
+
+
 
     const handleLogin = () => {
       login().then((data) => {
         console.log(data);
       })
     }
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target; 
+      
+        setLoginData({
+          ...loginData, 
+          [name]: value, 
+        });
+      };
+
     return (
         <div className="wrapper">
             <div className="container-signin">
@@ -31,17 +43,26 @@ export default function LoginPage() {
                         </div>
                         <form className="modal__form-login" id="formLogIn" action="#">
                             <input className="modal__input" 
-                            type="text" 
-                            name="login" 
+                            type="email" 
+                             
                             id="formlogin"
                              placeholder="Эл. почта"
+
+                              value={loginData.login}
+                              onChange={handleInputChange}
+                              name="login"
+                              label="Login"
                                 
                             />
                              <input className="modal__input"
                               type="password" 
-                              name="password" 
+                               
                               id="formpassword" 
                               placeholder="Пароль"
+                              value={loginData.password}
+                              onChange={handleInputChange}
+                              name="password"
+                              label="Password"
                                     
                             />
                                     <button className="modal__btn-enter _hover01" id="btnEnter" onClick={handleLogin}>
