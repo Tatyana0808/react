@@ -23,7 +23,7 @@ function App() {
   const [isLoaded,setIsLoaded] = useState(true);
 
   useEffect(() => {
-   getTasks(/*{ token: userData.token }*/);
+   getTasks({token: userData.token});
    
   }, [])
 
