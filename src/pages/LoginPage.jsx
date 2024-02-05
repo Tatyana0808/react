@@ -12,7 +12,7 @@ export default function LoginPage() {
     const loginForm = {
         login: '',
         password: '',
-    }
+    };
 
     const [loginData, setLoginData] = useState(loginForm);
 
