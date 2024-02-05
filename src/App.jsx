@@ -14,7 +14,10 @@ import LoginPage from './pages/LoginPage';
 //import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
-  let user = true;
+ 
+
+  const [userData, setUserData] = useState(null)
+
   const [cards, setCards] = useState(cardList);
   const [isLoaded,setIsLoaded] = useState(true);
 
@@ -45,7 +48,7 @@ function App() {
     <>
       <GlobalStyle />
       <Routes>
-        <Route element={<PrivateRoute user={user} />}>
+        <Route element={<PrivateRoute user={userData} />}>
 
           <Route path={appRoutes.MAIN} element={<MainPage 
            isLoaded={isLoaded}
@@ -56,7 +59,7 @@ function App() {
         </Route>
         <Route path={appRoutes.CARD} element={<CardPage />} />
         {/* <Route path={appRoutes.EXIT} element={<PopExitPage />} /> */}
-        <Route path={appRoutes.LOGIN} element={<LoginPage />} />
+        <Route path={appRoutes.LOGIN} element={<LoginPage setUserData={setUserData}/>} />
         <Route path={appRoutes.REGISTER} element={<RegisterPage />} />
         {/* <Route path={appRoutes.NOT_FOUND} element={<NotFoundPage />} /> */}
       </Routes>

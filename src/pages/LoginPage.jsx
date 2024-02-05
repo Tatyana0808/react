@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import "./signin.css"
 import { appRoutes } from "../lib/appRoutes"
 import { useState } from "react"
@@ -7,8 +7,9 @@ import { login } from "../api";
 
 
 
-export default function LoginPage() {
+export default function LoginPage({setUserData}) {
 
+    let navigate = useNavigate();
     const loginForm = {
         login: '',
         password: '',
@@ -22,6 +23,11 @@ export default function LoginPage() {
         e.preventDefault()
      await login(loginData).then((data) => {
         console.log(data);
+        console.log(data.user);
+        
+        setUserData(data.user);
+      }).then(() => {
+        navigate(appRoutes.MAIN)
       })
       .catch((error) => {
         console.warn(error)
