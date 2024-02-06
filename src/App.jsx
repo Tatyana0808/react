@@ -14,9 +14,9 @@ import { getTasks } from './api';
 //import PopExitPage from './pages/PopExitPage';
 //import NotFoundPage from './pages/NotFoundPage';
 
-function App() {
+function App({userData}) {
  
-
+  
   const [userData, setUserData] = useState(null)
 
   const [cards, setCards] = useState(cardList);
