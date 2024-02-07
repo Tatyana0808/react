@@ -11,7 +11,7 @@ function Column({ title, cardList }) {
       </ColumnTitle>
       
       <Cards>  
-        {cardList.map((card) => (
+        {cardList?.map((card) => (
           <Card name={card.title}
             id={card.id}
             theme={card.theme}

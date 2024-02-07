@@ -14,7 +14,7 @@ import { getTasks } from './api';
 //import PopExitPage from './pages/PopExitPage';
 //import NotFoundPage from './pages/NotFoundPage';
 
-function App({userData}) {
+function App() {
  
   
   const [userData, setUserData] = useState(null)
@@ -23,7 +23,7 @@ function App({userData}) {
   const [isLoaded,setIsLoaded] = useState(true);
 
   useEffect(() => {
-   getTasks({token: userData.token})
+   getTasks({token: userData?.token})
   .then((data) => {
     console.log(data.tasks);
     setCards(data.tasks);
@@ -31,7 +31,7 @@ function App({userData}) {
   .then(() =>{
     setIsLoaded(false);
   })
-  }, [])
+  }, [userData?.token])
 
 
   function addCard() {
