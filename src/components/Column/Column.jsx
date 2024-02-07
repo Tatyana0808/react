@@ -2,6 +2,7 @@ import Card from "../Card/Card";
 import { Cards, ColumnTitle, MainColumn } from "./Column.styled";
 
 function Column({ title, cardList }) {
+ // console.log(cardList[0].id);
   return (
 
     <MainColumn>

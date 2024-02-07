@@ -17,12 +17,16 @@ export async function login({ login, password }) {
 }
 
 export async function getTasks({ token }) {
+    
     const response = await fetch(API_URL, {
         method: 'GET',
         headers: {
             Authorization: `Bearer ${token}`,
         }
     });
+    if (!response.ok){
+        throw new Error("Ошибка сервера")
+    }
     const data = await response.json();
     return data;
 }

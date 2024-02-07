@@ -11,7 +11,9 @@ import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import RegisterPage from './pages/RegisterPage';
 import LoginPage from './pages/LoginPage';
 import { getTasks } from './api';
-//import PopExitPage from './pages/PopExitPage';
+import "./App.css"
+import PopExit from './components/PopUp/PopExit/PopExit';
+
 //import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
@@ -21,7 +23,7 @@ function App() {
 
   const [cards, setCards] = useState(cardList);
   const [isLoaded,setIsLoaded] = useState(true);
-
+  const [error, setError] = useState(null)
   useEffect(() => {
    getTasks({token: userData?.token})
   .then((data) => {
@@ -31,6 +33,9 @@ function App() {
   .then(() =>{
     setIsLoaded(false);
   })
+  .catch((error) => {
+  setError(error.message)
+  }) 
   }, [userData?.token])
 
 
@@ -55,16 +60,17 @@ function App() {
       <GlobalStyle />
       <Routes>
         <Route element={<PrivateRoute user={userData} />}>
-
+        <Route path={appRoutes.CARD} element={<CardPage />} />
           <Route path={appRoutes.MAIN} element={<MainPage userData={userData}
            isLoaded={isLoaded}
            cards={cards} 
            addCard={addCard}/>} >
             <Route path={`${appRoutes.CARD}/:cardId`} element={<CardPage />} />
+            <Route path={appRoutes.EXIT} element={<PopExit />} /> 
           </Route>
         </Route>
-        <Route path={appRoutes.CARD} element={<CardPage />} />
-        {/* <Route path={appRoutes.EXIT} element={<PopExitPage />} /> */}
+        
+       
         <Route path={appRoutes.LOGIN} element={<LoginPage setUserData={setUserData}/>} />
         <Route path={appRoutes.REGISTER} element={<RegisterPage />} />
         {/* <Route path={appRoutes.NOT_FOUND} element={<NotFoundPage />} /> */}

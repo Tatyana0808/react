@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Container } from "../Common/Common.styled";
 import { HeaderBlock, HeaderWrapper, HeaderNav, HeaderLogo, HeaderBtnMainNew, HeaderUser } from "./Header.styled";
+import { Link } from "react-router-dom";
+import { appRoutes } from "../../lib/appRoutes";
 function Header({ addCard }) {
   const [isOpened, setIsOpened] = useState(false);
   function togglePopUp() {
@@ -48,7 +50,7 @@ function Header({ addCard }) {
                 <input type="checkbox" className="checkbox" name="checkbox" />
               </div>
               <button type="button" className="_hover03">
-                <a href="#popExit">Выйти</a>
+                <Link to={appRoutes.EXIT}>Выйти</Link>
               </button>
             </div>}
 
