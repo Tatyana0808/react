@@ -21,7 +21,7 @@ function App() {
   
   const [userData, setUserData] = useState(null)
 
-  const [cards, setCards] = useState(cardList);
+  const [cards, setCards] = useState(null);
   const [isLoaded,setIsLoaded] = useState(true);
   const [error, setError] = useState(null)
   useEffect(() => {
@@ -34,7 +34,7 @@ function App() {
     setIsLoaded(false);
   })
   .catch((error) => {
-  setError(error.message)
+  setError(error.message);
   }) 
   }, [userData?.token])
 
