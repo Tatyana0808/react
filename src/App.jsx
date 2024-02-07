@@ -23,8 +23,14 @@ function App({userData}) {
   const [isLoaded,setIsLoaded] = useState(true);
 
   useEffect(() => {
-   getTasks({token: userData.token});
-   
+   getTasks({token: userData.token})
+  .then((data) => {
+    console.log(data.tasks);
+    setCards(data.tasks);
+  }) 
+  .then(() =>{
+    setIsLoaded(false);
+  })
   }, [])
 
 

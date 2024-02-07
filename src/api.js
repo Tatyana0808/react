@@ -20,7 +20,7 @@ export async function getTasks({ token }) {
     const response = await fetch(API_URL, {
         method: 'GET',
         headers: {
-            Authorisation: `Bearer ${token}`,
+            Authorization: `Bearer ${token}`,
         }
     });
     const data = await response.json();
