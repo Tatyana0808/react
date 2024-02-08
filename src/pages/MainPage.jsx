@@ -12,7 +12,7 @@ import { getTasks } from '../api';
 
 
 
-export default function MainPage({ addCard, isLoaded, cards, setError }) {
+export default function MainPage() {
 
     const {userData} = useUser();
     
