@@ -72,7 +72,7 @@ export default function MainPage() {
                 <Header addCard={addCard} 
                  userData={userData} 
                 />
-                {setError ? (
+                {error ? (
                    <p style={{ color: "red"}}>{setError}</p>
                 ) : (
                 <Main isLoaded={isLoaded} cardList={cards} />
