@@ -7,6 +7,8 @@ import '../App';
 import Main from '../components/Main/Main'
 import { appRoutes } from '../lib/appRoutes';
 import { Link, Outlet } from 'react-router-dom';
+import { useUser } from '../hooks/useUser';
+import { getTasks } from '../api';
 
 
 

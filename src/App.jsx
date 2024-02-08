@@ -1,7 +1,7 @@
 
 
-import { useEffect, useState } from 'react';
-import { cardList } from './data';
+import { useState } from 'react';
+
 import { GlobalStyle } from './Global.styled';
 import  MainPage  from './pages/MainPage';
 import { Route, Routes } from 'react-router-dom';
@@ -13,7 +13,7 @@ import LoginPage from './pages/LoginPage';
 
 import "./App.css"
 import PopExit from './components/PopUp/PopExit/PopExit';
-import { useUser } from './hooks/useUser';
+;
 
 import NotFoundPage from './pages/NotFoundPage';
 
