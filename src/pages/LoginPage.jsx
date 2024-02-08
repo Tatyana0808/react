@@ -3,12 +3,13 @@ import "./signin.css"
 import { appRoutes } from "../lib/appRoutes"
 import { useState } from "react"
 import { login } from "../api";
+import { useUser } from "../hooks/useUser";
 
 
 
 
-export default function LoginPage({setUserData}) {
-
+export default function LoginPage() {
+  const {loginUser} = useUser();
     let navigate = useNavigate();
     const loginForm = {
         login: '',
@@ -25,11 +26,11 @@ export default function LoginPage({setUserData}) {
         console.log(data);
         console.log(data.user);
         
-        setUserData(data.user);
-      }).then(() => {
-        navigate(appRoutes.MAIN)
+        loginUser(data.user)
+      
       })
       .catch((error) => {
+        alert(error);
         console.warn(error)
       })
     }

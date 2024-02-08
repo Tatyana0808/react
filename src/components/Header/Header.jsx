@@ -3,7 +3,7 @@ import { Container } from "../Common/Common.styled";
 import { HeaderBlock, HeaderWrapper, HeaderNav, HeaderLogo, HeaderBtnMainNew, HeaderUser } from "./Header.styled";
 import { Link } from "react-router-dom";
 import { appRoutes } from "../../lib/appRoutes";
-function Header({ addCard }) {
+function Header({ addCard, userData, toggleTheme}) {
   const [isOpened, setIsOpened] = useState(false);
   function togglePopUp() {
     setIsOpened((prev) => !prev)
@@ -36,15 +36,15 @@ function Header({ addCard }) {
             
             <HeaderUser 
             onClick={togglePopUp}>
-              Ivan Ivanov
+              {userData.login}
             </HeaderUser>
             {isOpened && <div
               className="header__pop-user-set pop-user-set"
 
             >
               {/* <a href="">x</a> */}
-              <p className="pop-user-set__name">Ivan Ivanov</p>
-              <p className="pop-user-set__mail">ivan.ivanov@gmail.com</p>
+              <p className="pop-user-set__name">{userData.name}</p>
+              <p className="pop-user-set__mail">{userData.login}</p>
               <div className="pop-user-set__theme">
                 <p>Темная тема</p>
                 <input type="checkbox" className="checkbox" name="checkbox" />
