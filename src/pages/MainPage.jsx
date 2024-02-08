@@ -8,7 +8,7 @@ import Main from '../components/Main/Main'
 import { appRoutes } from '../lib/appRoutes';
 import { Link, Outlet } from 'react-router-dom';
 
-export default function MainPage({ addCard, isLoaded, cards }) {
+export default function MainPage({ addCard, isLoaded, cards, setError }) {
     return (
         <>
             <Wrapper>
@@ -16,7 +16,11 @@ export default function MainPage({ addCard, isLoaded, cards }) {
                 {/* <PopExit />
                 <PopNewCard /> */}
                 <Header addCard={addCard} />
+                {setError ? (
+                   <p style={{ color: "red"}}>{setError}</p>
+                ) : (
                 <Main isLoaded={isLoaded} cardList={cards} />
+                )}
                 <Link to={appRoutes.LOGIN}>Войти</Link>
                 <br/>
                 <Link to={appRoutes.REGISTER}>Зарегистрироваться</Link>

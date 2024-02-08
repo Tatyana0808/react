@@ -10,19 +10,33 @@ import  CardPage  from './pages/CardPage';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import RegisterPage from './pages/RegisterPage';
 import LoginPage from './pages/LoginPage';
-//import PopExitPage from './pages/PopExitPage';
+import { getTasks } from './api';
+import "./App.css"
+import PopExit from './components/PopUp/PopExit/PopExit';
+
 //import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
-  let user = true;
-  const [cards, setCards] = useState(cardList);
-  const [isLoaded,setIsLoaded] = useState(true);
+ 
+  
+  const [userData, setUserData] = useState(null)
 
+  const [cards, setCards] = useState(null);
+  const [isLoaded,setIsLoaded] = useState(true);
+  const [error, setError] = useState(null)
   useEffect(() => {
-    setTimeout(() => {
-      setIsLoaded(false);
-    }, 2000)
-  }, [])
+   getTasks({token: userData?.token})
+  .then((data) => {
+    console.log(data.tasks);
+    setCards(data.tasks);
+  }) 
+  .then(() =>{
+    setIsLoaded(false);
+  })
+  .catch((error) => {
+  setError(error.message);
+  }) 
+  }, [userData?.token])
 
 
   function addCard() {
@@ -45,18 +59,19 @@ function App() {
     <>
       <GlobalStyle />
       <Routes>
-        <Route element={<PrivateRoute user={user} />}>
-
-          <Route path={appRoutes.MAIN} element={<MainPage 
+        <Route element={<PrivateRoute user={userData} />}>
+        <Route path={appRoutes.CARD} element={<CardPage />} />
+          <Route path={appRoutes.MAIN} element={<MainPage userData={userData}
            isLoaded={isLoaded}
            cards={cards} 
            addCard={addCard}/>} >
             <Route path={`${appRoutes.CARD}/:cardId`} element={<CardPage />} />
+            <Route path={appRoutes.EXIT} element={<PopExit />} /> 
           </Route>
         </Route>
-        <Route path={appRoutes.CARD} element={<CardPage />} />
-        {/* <Route path={appRoutes.EXIT} element={<PopExitPage />} /> */}
-        <Route path={appRoutes.LOGIN} element={<LoginPage />} />
+        
+       
+        <Route path={appRoutes.LOGIN} element={<LoginPage setUserData={setUserData}/>} />
         <Route path={appRoutes.REGISTER} element={<RegisterPage />} />
         {/* <Route path={appRoutes.NOT_FOUND} element={<NotFoundPage />} /> */}
       </Routes>

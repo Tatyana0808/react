@@ -1,7 +1,48 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import "./signin.css"
 import { appRoutes } from "../lib/appRoutes"
-export default function LoginPage() {
+import { useState } from "react"
+import { login } from "../api";
+
+
+
+
+export default function LoginPage({setUserData}) {
+
+    let navigate = useNavigate();
+    const loginForm = {
+        login: '',
+        password: '',
+    };
+
+    const [loginData, setLoginData] = useState(loginForm);
+
+
+
+    const  handleLogin = async (e) => {
+        e.preventDefault()
+     await login(loginData).then((data) => {
+        console.log(data);
+        console.log(data.user);
+        
+        setUserData(data.user);
+      }).then(() => {
+        navigate(appRoutes.MAIN)
+      })
+      .catch((error) => {
+        console.warn(error)
+      })
+    }
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target; 
+      
+        setLoginData({
+          ...loginData, 
+          [name]: value, 
+        });
+      };
+
     return (
         <div className="wrapper">
             <div className="container-signin">
@@ -13,21 +54,30 @@ export default function LoginPage() {
                         <form className="modal__form-login" id="formLogIn" action="#">
                             <input className="modal__input" 
                             type="text" 
-                            name="login" 
+                             
                             id="formlogin"
                              placeholder="Эл. почта"
+
+                              value={loginData.login}
+                              onChange={handleInputChange}
+                              name="login"
+                              label="Login"
                                 
                             />
                              <input className="modal__input"
                               type="password" 
-                              name="password" 
+                               
                               id="formpassword" 
                               placeholder="Пароль"
+                              value={loginData.password}
+                              onChange={handleInputChange}
+                              name="password"
+                              label="Password"
                                     
                             />
-                                    <button className="modal__btn-enter _hover01" id="btnEnter">
-                                        <Link to={appRoutes.MAIN}>Войти</Link>
-                                        </button>
+                                    <button className="modal__btn-enter _hover01" id="btnEnter" onClick={handleLogin}>
+                                        Войти
+                                    </button>
                                     <div className="modal__form-group">
                                         <p>Нужно зарегистрироваться?</p>
                                         <Link to={appRoutes.REGISTER}>Регистрируйтесь здесь</Link>

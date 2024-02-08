@@ -19,12 +19,12 @@ function Main({ cardList, isLoaded }) {
 
         <MainContent>
           {
-            isLoaded ? 'Loading' :
-              statusList.map((item) => (
+            isLoaded ? 'Loading'
+             : statusList?.map((item) => (
                 <Column
                   key={item}
                   title={item}
-                  cardList={cardList.filter((card) => card.status === item)}
+                  cardList={cardList?.filter((card) => card.status === item)}
                 />
               )
               )
