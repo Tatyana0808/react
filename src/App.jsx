@@ -13,19 +13,20 @@ import LoginPage from './pages/LoginPage';
 import { getTasks } from './api';
 import "./App.css"
 import PopExit from './components/PopUp/PopExit/PopExit';
+import { useUser } from './hooks/useUser';
 
-//import NotFoundPage from './pages/NotFoundPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
  
-  
-  const [userData, setUserData] = useState(null)
+  const {user} = useUser();
+  const [userData, setUserData] = useState(null);
 
   const [cards, setCards] = useState(null);
   const [isLoaded,setIsLoaded] = useState(true);
-  const [error, setError] = useState(null)
+  const [error, setError] = useState(null);
   useEffect(() => {
-   getTasks({token: userData?.token})
+   getTasks({token: user?.token})
   .then((data) => {
     console.log(data.tasks);
     setCards(data.tasks);
@@ -36,7 +37,7 @@ function App() {
   .catch((error) => {
   setError(error.message);
   }) 
-  }, [userData?.token])
+  }, [user?.token])
 
 
   function addCard() {
@@ -59,9 +60,9 @@ function App() {
     <>
       <GlobalStyle />
       <Routes>
-        <Route element={<PrivateRoute user={userData} />}>
+        <Route element={<PrivateRoute/>}>
         <Route path={appRoutes.CARD} element={<CardPage />} />
-          <Route path={appRoutes.MAIN} element={<MainPage userData={userData}
+          <Route path={appRoutes.MAIN} element={<MainPage user={user}
            isLoaded={isLoaded}
            cards={cards} 
            addCard={addCard}/>} >
@@ -73,7 +74,7 @@ function App() {
        
         <Route path={appRoutes.LOGIN} element={<LoginPage setUserData={setUserData}/>} />
         <Route path={appRoutes.REGISTER} element={<RegisterPage />} />
-        {/* <Route path={appRoutes.NOT_FOUND} element={<NotFoundPage />} /> */}
+        { <Route path={appRoutes.NOT_FOUND} element={<NotFoundPage />} /> }
       </Routes>
 
     </>
