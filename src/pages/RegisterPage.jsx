@@ -6,7 +6,7 @@ import { useState } from "react";
 
 
 
-         const RegisterPage = () => {
+const RegisterPage = () => {
          const [loginState, setLoginState] = useState("");
          const [passwordState, setPasswordState] = useState("");
          const [nameState, setNameState] = useState("");
