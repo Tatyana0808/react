@@ -72,7 +72,7 @@ function App({ addCard, isLoaded, cards}) {
         </Route>
         
        
-        <Route path={appRoutes.LOGIN} element={<LoginPage setUserData={setUserData}/>} />
+        <Route path={appRoutes.LOGIN} element={<LoginPage />} />
         <Route path={appRoutes.REGISTER} element={<RegisterPage setUserData={setUserData}/>} />
         { <Route path={appRoutes.NOT_FOUND} element={<NotFoundPage />} /> }
       </Routes>
