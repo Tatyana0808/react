@@ -1,6 +1,6 @@
 
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { cardList } from './data';
 import { GlobalStyle } from './Global.styled';
 import  MainPage  from './pages/MainPage';
@@ -10,19 +10,17 @@ import  CardPage  from './pages/CardPage';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import RegisterPage from './pages/RegisterPage';
 import LoginPage from './pages/LoginPage';
-
+import { getTasks } from './api';
 import "./App.css"
 import PopExit from './components/PopUp/PopExit/PopExit';
 import { useUser } from './hooks/useUser';
 
 import NotFoundPage from './pages/NotFoundPage';
 
-function App() {
-
-  const [userData, setUserData] = useState(null);
+function App({ addCard, isLoaded, cards}) {
  
   // const {user} = useUser();
-  // const [userData, setUserData] = useState(null);
+   const [userData, setUserData] = useState(null);
 
   // const [cards, setCards] = useState(null);
   // const [isLoaded,setIsLoaded] = useState(true);
