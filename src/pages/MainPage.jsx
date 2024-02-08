@@ -12,18 +12,16 @@ import { getTasks } from '../api';
 
 
 
-
-
 export default function MainPage({ addCard, isLoaded, cards, setError }) {
 
-    const {user} = useUser();
+    const {userData} = useUser();
     
   
     const [cards, setCards] = useState(null);
     const [isLoaded,setIsLoaded] = useState(true);
     const [error, setError] = useState(null);
     useEffect(() => {
-     getTasks({token: user?.token})
+     getTasks({token: userData?.token})
     .then((data) => {
       console.log(data.tasks);
       setCards(data.tasks);
@@ -34,7 +32,7 @@ export default function MainPage({ addCard, isLoaded, cards, setError }) {
     .catch((error) => {
     setError(error.message);
     }) 
-    }, [user?.token])
+    }, [userData?.token])
   
   
     function addCard() {
@@ -71,7 +69,7 @@ export default function MainPage({ addCard, isLoaded, cards, setError }) {
                 {/* <PopExit />
                 <PopNewCard /> */}
                 <Header addCard={addCard} 
-                 userData={user} 
+                 userData={userData} 
                 />
                 {setError ? (
                    <p style={{ color: "red"}}>{setError}</p>
