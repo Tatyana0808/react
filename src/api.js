@@ -49,6 +49,28 @@ export async function userRegistation({ login, name, password }) {
       throw new Error(error.error)
   
     }
+
     
+}
+
+// export asyns function deleteTask({ id, token }) {
+  
+//   return fetch(API_URL + `/${id}`, {
+//     method: 'DELETE',
+//     headers: {
+//       Authorization: `Bearer ${token}`,
+//     },
+//   }).then((response) => {
+//     if (response.status !== 201) {
+//       alert('Something went wrong');
+//       throw new Error("Something went wrong");
+//     } else {
+//       return response.json()
     
-  }
+
+//   }
+  
+//   })
+
+
+// }

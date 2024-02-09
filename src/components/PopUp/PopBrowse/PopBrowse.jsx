@@ -161,7 +161,7 @@ function PopBrowse() {
                 <button className="btn-browse__edit _btn-bor _hover03">
                   <a href="#">Редактировать задачу</a>
                 </button>
-                <button className="btn-browse__delete _btn-bor _hover03">
+                <button onClick={deleteTask} className="btn-browse__delete _btn-bor _hover03">
                   <a href="#">Удалить задачу</a>
                 </button>
               </div>
