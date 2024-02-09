@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 import "./signin.css"
 import { appRoutes } from "../lib/appRoutes"
 import { useState } from "react"
@@ -10,7 +10,7 @@ import { useUser } from "../hooks/useUser";
 
 export default function LoginPage() {
   const {loginUser} = useUser();
-    let navigate = useNavigate();
+   
     const loginForm = {
         login: '',
         password: '',

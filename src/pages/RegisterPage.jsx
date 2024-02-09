@@ -1,28 +1,31 @@
-import { Link, useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 import "./signup.css"
 import { appRoutes } from "../lib/appRoutes"
 import { userRegistation } from "../api";
 import { useState } from "react";
+import { useUser } from "../hooks/useUser";
 
 
 
 const RegisterPage = () => {
+
+  const {loginUser} = useUser();
+
          const [loginState, setLoginState] = useState("");
          const [passwordState, setPasswordState] = useState("");
          const [nameState, setNameState] = useState("");
          const [error, setError] = useState(null);
-         const navigate = useNavigate();
+        
          async function registration(e) {
           e.preventDefault();
+          loginUser(data.user)
       
           await userRegistation({
             login: loginState,
             name: nameState,
             password: passwordState,
           })
-            .then(() => {
-              navigate(RoutesObject.LOGIN);
-            })
+           
             .catch((error) => {
               if (error.message === "Failed to fetch") {
                 setError("ошибка соединения ");
