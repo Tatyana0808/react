@@ -245,7 +245,7 @@ function PopBrowse() {
                 <button className="btn-edit__edit _btn-bor _hover03">
                   <a href="#">Отменить</a>
                 </button>
-                <button
+                <button 
                   className="btn-edit__delete _btn-bor _hover03"
                   id="btnDelete"
                 >
