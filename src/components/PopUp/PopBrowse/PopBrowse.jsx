@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { PopBrowseBlock, PopBrowseContainer, PopBrowseContent, PopBrowseContents, PopBrowseStatusStatus, PopBrowseTopBlock } from "./PopBrowse.styled";
 import { useState } from "react";
+import { Calendar } from "../../Calendar/Calendar";
 
 
 function PopBrowse() {
@@ -74,8 +75,8 @@ function PopBrowse() {
                 </div>
               </form>
               <div className="pop-new-card__calendar calendar">
-                <p className="calendar__ttl subttl">Даты</p>
-                <div className="calendar__block">
+               <Calendar/>
+                {/* <div className="calendar__block">
                   <div className="calendar__nav">
                     <div className="calendar__month">Сентябрь 2023</div>
                     <div className="nav__actions">
@@ -164,7 +165,7 @@ function PopBrowse() {
                       <span className="date-control">09.09.23</span>
                     </p>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
             <div className="theme-down__categories theme-down">
