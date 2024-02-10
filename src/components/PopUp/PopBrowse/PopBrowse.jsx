@@ -10,6 +10,7 @@ import { useUser } from "../../../hooks/useUser";
 function PopBrowse() {
   const [selected, setSelected] = useState ();
   const {userData} = useUser();
+  const [cards, setCards] = useState(null);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
