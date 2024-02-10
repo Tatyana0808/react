@@ -1,8 +1,25 @@
 import { useParams } from "react-router-dom";
 import { PopBrowseBlock, PopBrowseContainer, PopBrowseContent, PopBrowseContents, PopBrowseStatusStatus, PopBrowseTopBlock } from "./PopBrowse.styled";
+import { useState } from "react";
 
 
 function PopBrowse() {
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+
+    setNewTask({
+      ...newTask,
+      [name]: value,
+    });
+  };
+
+  const [newTask, setNewTask] = useState({
+    title: "",
+    topic: "",
+    description: "",
+
+  });
   let { cardId } = useParams();
   return (
     <PopBrowseContent id="popBrowse">
@@ -152,16 +169,33 @@ function PopBrowse() {
             </div>
             <div className="theme-down__categories theme-down">
               <p className="categories__p subttl">Категория</p>
-              <div className="categories__theme _orange _active-category">
+
+              <div className="prod_checbox">
+                  <div className="radio-toolbar">
+                    <input type="radio" id="radio1" name="topik" onChange={handleInputChange} value="Web Design"  />
+                    <label htmlFor="radio1">Web Design</label>
+
+                    <input type="radio" id="radio2" name="topik" onChange={handleInputChange} value="Research" />
+                    <label htmlFor="radio2">Research</label>
+
+                    <input type="radio" id="radio3" name="topik" onChange={handleInputChange} value="Copywriting" />
+                    <label htmlFor="radio3">Copywriting</label>
+                  </div>
+                </div>
+
+              {/* <div className="categories__theme _orange _active-category">
                 <p className="_orange">Web Design</p>
-              </div>
+                
+              </div> */}
             </div>
             <div className="pop-browse__btn-browse ">
               <div className="btn-group">
                 <button className="btn-browse__edit _btn-bor _hover03">
                   <a href="#">Редактировать задачу</a>
                 </button>
-                <button onClick={deleteTask} className="btn-browse__delete _btn-bor _hover03">
+                <button 
+                // onClick={deleteTask} 
+                className="btn-browse__delete _btn-bor _hover03">
                   <a href="#">Удалить задачу</a>
                 </button>
               </div>

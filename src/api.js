@@ -68,7 +68,7 @@ export async function userRegistation({ login, name, password }) {
 //       return response.json()
     
 
-//   }
+//     }
   
 //   })
 
