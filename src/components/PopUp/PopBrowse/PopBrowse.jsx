@@ -2,9 +2,11 @@ import { useParams } from "react-router-dom";
 import { PopBrowseBlock, PopBrowseContainer, PopBrowseContent, PopBrowseContents, PopBrowseStatusStatus, PopBrowseTopBlock } from "./PopBrowse.styled";
 import { useState } from "react";
 import { Calendar } from "../../Calendar/Calendar";
+import { getTasks } from "../../../api";
 
 
 function PopBrowse() {
+  const [selected, setSelected] = useState ();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -21,6 +23,19 @@ function PopBrowse() {
     description: "",
 
   });
+  const addCard = async() => {
+    let newCard = {
+      ...newTask, data:selected
+    }
+    console.log(newCard);
+    await addTasks({ token: userData.token, title: newCard.title, topic: newCard.topic, status: newCard.status, description:newCard.description })
+    getTasks({ token: userData.token })
+    .then((data) => {
+      setCards(data.tasks);
+    })
+  };
+
+
   let { cardId } = useParams();
   return (
     <PopBrowseContent id="popBrowse">
@@ -29,20 +44,32 @@ function PopBrowse() {
         <PopBrowseBlock>
           <PopBrowseContents>
             <PopBrowseTopBlock>
-              <h3 className="pop-browse__ttl">Название задачи:{cardId}</h3>
-              <div className="categories__theme theme-top _orange _active-category">
-                <p className="_orange">Web Design</p>
-              </div>
+              <h3 className="pop-browse__ttl">Создание задачи:{cardId}</h3>
+              
             </PopBrowseTopBlock>
             <PopBrowseStatusStatus>
-              <p className="status__p subttl">Статус</p>
+              
               <div className="status__themes">
                 <div className="status__theme _hide">
                   <p>Без статуса</p>
                 </div>
-                <div className="status__theme _gray">
-                  <p className="_gray">Нужно сделать</p>
+                <div className="form-new__block">
+                  <label htmlFor="formTitle" className="subttl">
+                    Название задачи
+                  </label>
+                  <textarea value={newTask.title}
+                    onChange={handleInputChange}
+                    className="form-new__input"
+                    name="title"
+                    readOnly=""
+                    id="textArea01"
+                    placeholder="Введите название ..."
+                   // defaultValue={""}
+                  />
                 </div>
+                {/* <div className="status__theme _gray">
+                  <p className="_gray">Нужно сделать</p>
+                </div> */}
                 <div className="status__theme _hide">
                   <p>В работе</p>
                 </div>
@@ -64,18 +91,19 @@ function PopBrowse() {
                   <label htmlFor="textArea01" className="subttl">
                     Описание задачи
                   </label>
-                  <textarea
+                  <textarea value={newTask.description}
+                    onChange={handleInputChange}
                     className="form-browse__area"
-                    name="text"
+                    name="description"
                     id="textArea01"
                     readOnly=""
                     placeholder="Введите описание задачи..."
-                    defaultValue={""}
+                    //defaultValue={""}
                   />
                 </div>
               </form>
               <div className="pop-new-card__calendar calendar">
-               <Calendar/>
+               <Calendar selected={selected} setSelected={setSelected}/>
                 {/* <div className="calendar__block">
                   <div className="calendar__nav">
                     <div className="calendar__month">Сентябрь 2023</div>
@@ -201,7 +229,7 @@ function PopBrowse() {
                 </button>
               </div>
               <button className="btn-browse__close _btn-bg _hover01">
-                <a href="#">Закрыть</a>
+                <a href="#">Создать задачу</a>
               </button>
             </div>
             <div className="pop-browse__btn-edit _hide">

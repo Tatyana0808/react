@@ -1,10 +1,11 @@
 import { format } from 'date-fns';
-import { useState } from 'react';
+
 import { DayPicker } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
 import ru from "date-fns/locale/ru"
-export function Calendar() {
-    const [selected, setSelected] = useState ();
+
+export function Calendar({selected, setSelected}) {
+   
 
     let footer = <p>Please pick a day.</p>;
     if (selected) {
