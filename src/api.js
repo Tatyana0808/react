@@ -54,15 +54,15 @@ export async function userRegistation({ login, name, password }) {
 }
 
 export async function addTasks({ title, topic, status, description, date }){
-  const response = await fetch(' https://wedev-api.sky.pro/api/kanban', {
+  const response = await fetch(API_URL, {
     method: 'POST',
     body: JSON.stringify({
-      title: "Новая задача 2!",
-      topic: "Research",
-      status: "Без статуса",
-      description: "Подробное описание задачи",
-      date: "2024-01-07T16:26:18.179Z",
-    })
+      title, 
+      topic, 
+      status, 
+      description, 
+      date, 
+    }),
 })
 
 const data = await response.json();
