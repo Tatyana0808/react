@@ -32,7 +32,7 @@ export async function getTasks({ token }) {
 }
 
 export async function userRegistation({ login, name, password }) {
-    const response = await fetch("https://wedev-api.sky.pro/api/user", {
+    const response = await fetch(API_URL_USER, {
       method: "POST",
       body: JSON.stringify({
         login,
