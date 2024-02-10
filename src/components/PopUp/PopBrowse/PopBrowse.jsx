@@ -1,8 +1,9 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { PopBrowseBlock, PopBrowseContainer, PopBrowseContent, PopBrowseContents, PopBrowseStatusStatus, PopBrowseTopBlock } from "./PopBrowse.styled";
 import { useState } from "react";
 import { Calendar } from "../../Calendar/Calendar";
-import { getTasks } from "../../../api";
+import { deleteTask, getTasks } from "../../../api";
+import { appRoutes } from "../../../lib/appRoutes";
 
 
 function PopBrowse() {
@@ -102,7 +103,7 @@ function PopBrowse() {
                   />
                 </div>
               </form>
-              <div className="pop-new-card__calendar calendar">
+              {/* <div className="pop-new-card__calendar calendar"> */}
                <Calendar selected={selected} setSelected={setSelected}/>
                 {/* <div className="calendar__block">
                   <div className="calendar__nav">
@@ -194,7 +195,7 @@ function PopBrowse() {
                     </p>
                   </div>
                 </div> */}
-              </div>
+              {/* </div> */}
             </div>
             <div className="theme-down__categories theme-down">
               <p className="categories__p subttl">Категория</p>
@@ -223,17 +224,21 @@ function PopBrowse() {
                   <a href="#">Редактировать задачу</a>
                 </button>
                 <button 
-                // onClick={deleteTask} 
+                onClick={deleteTask} 
                 className="btn-browse__delete _btn-bor _hover03">
                   <a href="#">Удалить задачу</a>
                 </button>
               </div>
-              <button className="btn-browse__close _btn-bg _hover01">
-                <a href="#">Создать задачу</a>
+              {/* <Link to={appRoutes.MAIN}onClick={addCard}> */}
+              <button onClick={addCard} className="btn-browse__close _btn-bg _hover01">
+                Создать задачу
               </button>
+              {/* </Link> */}
+              
             </div>
             <div className="pop-browse__btn-edit _hide">
               <div className="btn-group">
+
                 <button className="btn-edit__edit _btn-bg _hover01">
                   <a href="#">Сохранить</a>
                 </button>

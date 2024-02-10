@@ -53,24 +53,31 @@ export async function userRegistation({ login, name, password }) {
     
 }
 
-// export asyns function deleteTask({ id, token }) {
+//export async function addTasks(){
+
+//}
+
+export async function deleteTask({ id, token }) {
+
+  console.log('deleteTask id: ' + id);
+  console.log('deleteTask token: ' + token);
   
-//   return fetch(API_URL + `/${id}`, {
-//     method: 'DELETE',
-//     headers: {
-//       Authorization: `Bearer ${token}`,
-//     },
-//   }).then((response) => {
-//     if (response.status !== 201) {
-//       alert('Something went wrong');
-//       throw new Error("Something went wrong");
-//     } else {
-//       return response.json()
+  return fetch(API_URL + `/${id}`, {
+    method: 'DELETE',
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  }).then((response) => {
+    if (response.status !== 201) {
+      alert('Something went wrong');
+      throw new Error("Something went wrong");
+    } else {
+      return response.json()
     
 
-//     }
+    }
   
-//   })
+  })
 
 
-// }
+}
