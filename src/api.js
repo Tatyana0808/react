@@ -6,6 +6,7 @@ const  API_URL = 'https://wedev-api.sky.pro/api/kanban';
 export async function login({ login, password }) {
     const response = await fetch(API_URL_USER + '/login', {
         method: 'POST',
+        
         body: JSON.stringify({
           login,
           password,
@@ -53,9 +54,12 @@ export async function userRegistation({ login, name, password }) {
     
 }
 
-export async function addTasks({ title, topic, status, description, date }){
+export async function addTasks({ title, topic, status, description, date, token }){
   const response = await fetch(API_URL, {
     method: 'POST',
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
     body: JSON.stringify({
       title, 
       topic, 
