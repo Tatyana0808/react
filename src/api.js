@@ -57,9 +57,7 @@ export async function userRegistation({ login, name, password }) {
 export async function addTasks({ title, topic, status, description, date, }){
   const response = await fetch(API_URL, {
     method: 'POST',
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
+    
     body: JSON.stringify({
       title, 
       topic, 
