@@ -23,6 +23,11 @@ const logoutUser = () => {
     localStorage.removeItem('user');
     navigate(appRoutes.LOGIN)
 }
+// function setUserTasks
+// const setUserTasks = () => {
+//   setUserData(null);
+//   localStorage.removeItem('user');
+//   navigate(appRoutes.LOGIN)
 
 return (
 <UserContext.Provider value={{ userData, loginUser, logoutUser }}>
