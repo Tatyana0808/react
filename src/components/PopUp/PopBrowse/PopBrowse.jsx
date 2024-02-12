@@ -33,6 +33,13 @@ function PopBrowse() {
     }
     console.log(newCard);
     await addTasks({ token: userData.token, title: newCard.title, topic: newCard.topic, status: newCard.status, description:newCard.description })
+
+// 1. контекст для карточки . копировать как user. не из localstorage
+// 2. адаптировать под получение данных из контекста
+// 3. функция добавления карточки.
+// 4. setcards -> данные из context
+// 5. редактирование задачи
+
     getTasks({ token: userData.token })
     .then((data) => {
       setCards(data.tasks);
