@@ -96,3 +96,20 @@ export async function deleteTask({ id, token }) {
 
 
 }
+
+export async function editTasks({id, token, title, topic, status, description, date}){
+  const response = await fetch(API_URL + `/${id}`, {
+    method: 'PUT',
+    
+    body: JSON.stringify({
+      title, 
+      topic, 
+      status, 
+      description, 
+      date, 
+    }),
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+})
+}

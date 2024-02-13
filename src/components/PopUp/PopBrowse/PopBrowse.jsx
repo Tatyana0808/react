@@ -1,16 +1,19 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { PopBrowseBlock, PopBrowseContainer, PopBrowseContent, PopBrowseContents, PopBrowseStatusStatus, PopBrowseTopBlock } from "./PopBrowse.styled";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Calendar } from "../../Calendar/Calendar";
-import { deleteTask, getTasks, addTasks } from "../../../api";
+import { deleteTask, getTasks, addTasks, editTasks } from "../../../api";
 
 import { useUser } from "../../../hooks/useUser";
+import { appRoutes } from "../../../lib/appRoutes";
 
 
 function PopBrowse() {
   const [selected, setSelected] = useState ();
   const {userData} = useUser();
   const [cards, setCards] = useState(null);
+  const {cardId} = useParams()
+  console.log(cardId);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -25,7 +28,8 @@ function PopBrowse() {
     title: "",
     topic: "",
     description: "",
-
+    date: "",
+    status: "Без статуса"
   });
   const addCard = async() => {
     let newCard = {
@@ -47,7 +51,12 @@ function PopBrowse() {
   };
 
 
-  let { cardId } = useParams();
+  useEffect(() => {
+    setNewTask({
+      ...newTask,
+      date: selected,
+    });
+  }, [selected])
   return (
     <PopBrowseContent id="popBrowse">
       <PopBrowseContainer>
@@ -212,13 +221,13 @@ function PopBrowse() {
 
               <div className="prod_checbox">
                   <div className="radio-toolbar">
-                    <input type="radio" id="radio1" name="topik" onChange={handleInputChange} value="Web Design"  />
+                    <input type="radio" id="radio1" name="topic" onChange={handleInputChange} value="Web Design"  />
                     <label htmlFor="radio1">Web Design</label>
 
-                    <input type="radio" id="radio2" name="topik" onChange={handleInputChange} value="Research" />
+                    <input type="radio" id="radio2" name="topic" onChange={handleInputChange} value="Research" />
                     <label htmlFor="radio2">Research</label>
 
-                    <input type="radio" id="radio3" name="topik" onChange={handleInputChange} value="Copywriting" />
+                    <input type="radio" id="radio3" name="topic" onChange={handleInputChange} value="Copywriting" />
                     <label htmlFor="radio3">Copywriting</label>
                   </div>
                 </div>
@@ -230,20 +239,20 @@ function PopBrowse() {
             </div>
             <div className="pop-browse__btn-browse ">
               <div className="btn-group">
-                <button className="btn-browse__edit _btn-bor _hover03">
+                <button onClick={() => editTasks({id:cardId, token:userData.token, title:newTask.title, date:newTask.date, description:newTask.description, status:newTask.status,topic:newTask.topic })} className="btn-browse__edit _btn-bor _hover03">
                   <a href="#">Редактировать задачу</a>
                 </button>
                 <button 
-                onClick={deleteTask} 
+                onClick={() => deleteTask({id:cardId, token:userData.token})} 
                 className="btn-browse__delete _btn-bor _hover03">
                   <a href="#">Удалить задачу</a>
                 </button>
               </div>
-              {/* <Link to={appRoutes.MAIN}onClick={addCard}> */}
-              <button onClick={addCard} className="btn-browse__close _btn-bg _hover01">
-                Создать задачу
+               <Link to={appRoutes.MAIN}> 
+              <button  className="btn-browse__close _btn-bg _hover01">
+                Закрыть
               </button>
-              {/* </Link> */}
+              </Link> 
               
             </div>
             <div className="pop-browse__btn-edit _hide">
