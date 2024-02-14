@@ -54,7 +54,7 @@ export async function userRegistation({ login, name, password }) {
     
 }
 
-export async function addTasks({ title, topic, status, description, date, }){
+export async function addTasks({ title, topic, status, description, date }){
   const response = await fetch(API_URL, {
     method: 'POST',
     
@@ -72,8 +72,8 @@ return data;
 
 }
 
-export async function deleteTask({ id, token }) {
-
+export async function deleteTask({ id, token, title, topic, status, description, date }) {
+  const navigate = useNavigate();
   console.log('deleteTask id: ' + id);
   console.log('deleteTask token: ' + token);
   
@@ -81,7 +81,19 @@ export async function deleteTask({ id, token }) {
     method: 'DELETE',
     headers: {
       Authorization: `Bearer ${token}`,
+      
     },
+    
+    method: 'POST',
+    
+    body: JSON.stringify({
+      title, 
+      topic, 
+      status, 
+      description, 
+      date, 
+    }),
+    
   }).then((response) => {
     if (response.status !== 201) {
       alert('Something went wrong');
