@@ -18,6 +18,7 @@ const RegisterPage = () => {
         
          async function registration(e) {
           e.preventDefault();
+          loginUser(data.user)
          
           await userRegistation({
             login: loginState,
