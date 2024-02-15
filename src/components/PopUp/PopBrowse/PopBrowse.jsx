@@ -1,17 +1,19 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { PopBrowseBlock, PopBrowseContainer, PopBrowseContent, PopBrowseContents, PopBrowseStatusStatus, PopBrowseTopBlock } from "./PopBrowse.styled";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Calendar } from "../../Calendar/Calendar";
 import { deleteTask, getTasks, addTasks, editTasks } from "../../../api";
 
 import { useUser } from "../../../hooks/useUser";
 import { appRoutes } from "../../../lib/appRoutes";
+import { CardsContext } from "../../../contexts/cards";
 
 
 function PopBrowse() {
+  const navigate = useNavigate();
   const [selected, setSelected] = useState ();
   const {userData} = useUser();
-  const [cards, setCards] = useState(null);
+  const {cards, setCards} = useContext(CardsContext);
   const {cardId} = useParams()
   console.log(cardId);
 
@@ -38,6 +40,9 @@ function PopBrowse() {
     console.log(newCard);
     await addTasks({ token: userData.token, title: newCard.title, topic: newCard.topic, status: newCard.status, description:newCard.description })
 
+//не работает окно добавления карточки
+//не корректно работает удаление
+//ошибка регистрации
 // 1. контекст для карточки . копировать как user. не из localstorage
 // 2. адаптировать под получение данных из контекста
 // 3. функция добавления карточки.
@@ -246,7 +251,17 @@ function PopBrowse() {
                   <a href="#">Редактировать задачу</a>
                 </button>
                 <button 
-                onClick={() => deleteTask({id:cardId, token:userData.token})} 
+                onClick={() => { 
+                  deleteTask({id:cardId, token:userData.token}) .then (()=>{
+                    return  getTasks({ token: userData.token })
+                    
+                  })
+                  .then((data) => {
+                    setCards(data.tasks);
+                    navigate(appRoutes.MAIN)
+                  })
+                } }
+
                 className="btn-browse__delete _btn-bor _hover03">
                   <a href="#">Удалить задачу</a>
                 </button>

@@ -9,7 +9,8 @@ import { appRoutes } from '../lib/appRoutes';
 import { Link, Outlet } from 'react-router-dom';
 import { useUser } from '../hooks/useUser';
 import { getTasks } from '../api';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { CardsContext } from '../contexts/cards';
 
 
 
@@ -18,7 +19,7 @@ export default function MainPage() {
     const {userData} = useUser();
     
   
-    const [cards, setCards] = useState(null);
+    const {cards, setCards} = useContext(CardsContext);
     const [isLoaded,setIsLoaded] = useState(true);
     const [error, setError] = useState(null);
     useEffect(() => {
