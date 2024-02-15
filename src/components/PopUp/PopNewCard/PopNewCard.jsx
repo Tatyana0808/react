@@ -159,7 +159,7 @@ function PopNewCard() {
               <div className="categories__themes">
 
 
-                <div className="categories__theme _orange _active-category">
+                {/* <div className="categories__theme _orange _active-category">
                 <p className="_orange">Web Design</p>
               </div>
               <div className="categories__theme _green">
@@ -167,9 +167,9 @@ function PopNewCard() {
               </div>
               <div className="categories__theme _purple">
                 <p className="_purple">Copywriting</p>
-              </div>
+              </div> */}
 
-                {/* <div className="prod_checbox">
+                <div className="prod_checbox">
                   <div className="radio-toolbar">
                     <input type="radio" id="radio1" name="radios" value="Web Design" checked />
                     <label htmlFor="radio1">Web Design</label>
@@ -180,7 +180,7 @@ function PopNewCard() {
                     <input type="radio" id="radio3" name="radios" value="Copywriting" />
                     <label htmlFor="radio3">Copywriting</label>
                   </div>
-                </div> */}
+                </div>
 
 
               </div>

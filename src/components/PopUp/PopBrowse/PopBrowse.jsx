@@ -224,7 +224,7 @@ function PopBrowse() {
                 </div> */}
               {/* </div> */}
             </div>
-            <div className="theme-down__categories theme-down">
+            {/* <div className="theme-down__categories theme-down">
               <p className="categories__p subttl">Категория</p>
 
               <div className="prod_checbox">
@@ -240,11 +240,8 @@ function PopBrowse() {
                   </div>
                 </div>
 
-              {/* <div className="categories__theme _orange _active-category">
-                <p className="_orange">Web Design</p>
-                
-              </div> */}
-            </div>
+              
+            </div> */}
             <div className="pop-browse__btn-browse ">
               <div className="btn-group">
                 <button onClick={() => editTasks({id:cardId, token:userData.token, title:newTask.title, date:newTask.date, description:newTask.description, status:newTask.status,topic:newTask.topic })} className="btn-browse__edit _btn-bor _hover03">
