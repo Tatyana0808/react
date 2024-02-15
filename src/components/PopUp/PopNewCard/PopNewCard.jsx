@@ -1,8 +1,27 @@
 import { Container } from "../../Common/Common.styled";
 import {useState} from "react";
 import {PopBrowseContainer, PopBrowseContent} from '../PopBrowse/PopBrowse.styled';
+import { Calendar } from "../../Calendar/Calendar";
+import { Link } from "react-router-dom";
+import { appRoutes } from "../../../lib/appRoutes";
 
 function PopNewCard() {
+
+  const [selected, setSelected] = useState();
+  const [newTask, setNewTask] = useState({
+    title: "",
+    topic: "",
+    description: "",
+  
+    
+  });
+
+  const addCard = async() => {
+    let newCard = {
+      ...newTask, data:selected
+      }
+    console.log(newCard);
+    }
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -14,12 +33,7 @@ function PopNewCard() {
   };
 
 
-  const [newTask, setNewTask] = useState({
-    title: "",
-    topic: "",
-    description: "",
-
-  });
+  
 
   return (
     <PopBrowseContent id="popBrowse">
@@ -28,9 +42,9 @@ function PopNewCard() {
         <div className="pop-new-card__block">
           <div className="pop-new-card__content">
             <h3 className="pop-new-card__ttl">Создание задачи</h3>
-            <a href="#" className="pop-new-card__close">
+            <Link to={appRoutes.MAIN} className="pop-new-card__close">
               ✖
-            </a>
+            </Link>
             <div className="pop-new-card__wrap">
               <form
                 className="pop-new-card__form form-new"
@@ -44,8 +58,8 @@ function PopNewCard() {
                   <textarea value={newTask.title}
                     onChange={handleInputChange}
                     className="form-new__input"
-                    type="text"
-                    name="name"
+                    
+                    name="title"
                     id="formTitle"
                     placeholder="Введите название задачи..."
                   />
@@ -57,13 +71,15 @@ function PopNewCard() {
                   <textarea value={newTask.description}
                     onChange={handleInputChange}
                     className="form-new__area"
-                    name="text"
+                    name="description"
                     id="textArea"
                     placeholder="Введите описание задачи..."
                   />
                 </div>
               </form>
-              <div className="pop-new-card__calendar calendar">
+              <Calendar selected={selected} setSelected={setSelected}/>
+
+              {/* <div className="pop-new-card__calendar calendar">
                 <p className="calendar__ttl subttl">Даты</p>
                 <div className="calendar__block">
                   <div className="calendar__nav">
@@ -91,6 +107,7 @@ function PopNewCard() {
                       </div>
                     </div>
                   </div>
+
                   <div className="calendar__content">
                     <div className="calendar__days-names">
                       <div className="calendar__day-name">пн</div>
@@ -152,7 +169,7 @@ function PopNewCard() {
                     </p>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
             <div className="pop-new-card__categories categories">
               <p className="categories__p subttl">Категория</p>
@@ -169,25 +186,30 @@ function PopNewCard() {
                 <p className="_purple">Copywriting</p>
               </div> */}
 
-                <div className="prod_checbox">
+               <div className="prod_checbox">
                   <div className="radio-toolbar">
-                    <input type="radio" id="radio1" name="radios" value="Web Design" checked />
+                    <input type="radio" id="radio1" name="topic" onChange={handleInputChange} value="Web Design"  />
                     <label htmlFor="radio1">Web Design</label>
 
-                    <input type="radio" id="radio2" name="radios" value="Research" />
+                    <input type="radio" id="radio2" name="topic" onChange={handleInputChange} value="Research" />
                     <label htmlFor="radio2">Research</label>
 
-                    <input type="radio" id="radio3" name="radios" value="Copywriting" />
+                    <input type="radio" id="radio3" name="topic" onChange={handleInputChange} value="Copywriting" />
                     <label htmlFor="radio3">Copywriting</label>
                   </div>
                 </div>
 
 
+
+
+
               </div>
             </div>
-            <button className="form-new__create _hover01" id="btnCreate">
+            <Link to={appRoutes.MAIN} onClick={addCard}>
+               <button  className="form-new__create _hover01" id="btnCreate">
               Создать задачу
-            </button>
+               </button>
+            </Link>
           </div>
         </div>
       </PopBrowseContainer>
