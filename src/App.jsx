@@ -16,7 +16,7 @@ import PopExit from './components/PopUp/PopExit/PopExit';
 import { useUser } from './hooks/useUser';
 
 import NotFoundPage from './pages/NotFoundPage';
-
+import CardNewPage from  './pages/CardNewPege';
 function App({ addCard, isLoaded, cards}) {
  
   // const {user} = useUser();
@@ -67,6 +67,7 @@ function App({ addCard, isLoaded, cards}) {
            cards={cards} 
            addCard={addCard}/>} >
             <Route path={`${appRoutes.CARD}/:cardId`} element={<CardPage setUserData={setUserData} />} />
+            <Route path={appRoutes.CARD_NEW} element={<CardNewPage />} />
             <Route path={appRoutes.EXIT} element={<PopExit />} /> 
           </Route>
         </Route>

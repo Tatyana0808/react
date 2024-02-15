@@ -6,7 +6,7 @@ import '../App';
 //import PopNewCard from '../components/PopUp/PopNewCard/PopNewCard';
 import Main from '../components/Main/Main'
 import { appRoutes } from '../lib/appRoutes';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
 import { useUser } from '../hooks/useUser';
 import { getTasks } from '../api';
 import { useContext, useEffect, useState } from 'react';
@@ -15,6 +15,7 @@ import { CardsContext } from '../contexts/cards';
 
 
 export default function MainPage() {
+  const navigate = useNavigate();
 
     const {userData} = useUser();
     
@@ -38,18 +39,19 @@ export default function MainPage() {
   
   
     function addCard() {
-      setCards([
-        ...cards,
-        {
-          _id: cards.length + 1,
-          theme: "Web Design",
-          title: "Название задачи",
-          date: "30.10.23",
-          status: "Без статуса",
-  
-        }
-      ])
-  
+      // setCards([
+      //   ...cards,
+      //   {
+      //     _id: cards.length + 1,
+      //     theme: "Web Design",
+      //     title: "Название задачи",
+      //     date: "30.10.23",
+      //     status: "Без статуса",
+      //
+      //   }
+      // ])
+      navigate(appRoutes.CARD_NEW);
+    
     }
 
 

@@ -1,4 +1,6 @@
 import { Container } from "../../Common/Common.styled";
+import {useState} from "react";
+import {PopBrowseContainer, PopBrowseContent} from '../PopBrowse/PopBrowse.styled';
 
 function PopNewCard() {
 
@@ -20,9 +22,9 @@ function PopNewCard() {
   });
 
   return (
-    <div className="pop-new-card" id="popNewCard">
+    <PopBrowseContent id="popBrowse">
 
-      <Container>
+      <PopBrowseContainer>
         <div className="pop-new-card__block">
           <div className="pop-new-card__content">
             <h3 className="pop-new-card__ttl">Создание задачи</h3>
@@ -46,7 +48,6 @@ function PopNewCard() {
                     name="name"
                     id="formTitle"
                     placeholder="Введите название задачи..."
-                    defaultValue={""}
                   />
                 </div>
                 <div className="form-new__block">
@@ -59,7 +60,6 @@ function PopNewCard() {
                     name="text"
                     id="textArea"
                     placeholder="Введите описание задачи..."
-                    defaultValue={""}
                   />
                 </div>
               </form>
@@ -190,8 +190,8 @@ function PopNewCard() {
             </button>
           </div>
         </div>
-      </Container>
-    </div>
+      </PopBrowseContainer>
+    </PopBrowseContent>
   )
 }
 export default PopNewCard;
