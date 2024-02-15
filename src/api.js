@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { appRoutes } from "./lib/appRoutes";
 
 const token = 'asb4c4boc86gasb4c4boc86g37w3cc3bo3b83k4g37k3bk3cg3c03ck4k';
 const API_URL_USER = 'https://wedev-api.sky.pro/api/user';
@@ -75,7 +76,7 @@ return data;
 }
 
 export async function deleteTask({ id, token }) {
-  //const navigate = useNavigate();
+  // const navigate = useNavigate();
   console.log('deleteTask id: ' + id);
   console.log('deleteTask token: ' + token);
   
@@ -86,9 +87,11 @@ export async function deleteTask({ id, token }) {
       
     },
     
+  // }).then(() => {
+  //   navigate(appRoutes.MAIN)
+  }) 
     
-    
-  }).then((response) => {
+  .then((response) => {
     if (response.status !== 201) {
       alert('Something went wrong');
       throw new Error("Something went wrong");
