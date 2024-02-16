@@ -4,6 +4,7 @@ import {PopBrowseContainer, PopBrowseContent} from '../PopBrowse/PopBrowse.style
 import { Calendar } from "../../Calendar/Calendar";
 import { Link } from "react-router-dom";
 import { appRoutes } from "../../../lib/appRoutes";
+import { deleteTask, getTasks, addTasks, editTasks } from "../../../api";
 
 function PopNewCard() {
 
@@ -21,6 +22,9 @@ function PopNewCard() {
       ...newTask, data:selected
       }
     console.log(newCard);
+    
+    await addTasks({ token: userData.token, title: newCard.title, topic: newCard.topic, status: newCard.status, description:newCard.description })
+
     }
 
   const handleInputChange = (e) => {
@@ -205,7 +209,8 @@ function PopNewCard() {
 
               </div>
             </div>
-            <Link to={appRoutes.MAIN} onClick={addCard}>
+            <Link to={appRoutes.MAIN} onClick={( )=> addTasks({ token: userData.token, title: newCard.title, topic: newCard.topic, status: newCard.status, description:newCard.description })
+}>
                <button  className="form-new__create _hover01" id="btnCreate">
               Создать задачу
                </button>
