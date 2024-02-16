@@ -1,12 +1,14 @@
 import { Container } from "../../Common/Common.styled";
-import {useState} from "react";
+import {useContext, useState} from "react";
 import {PopBrowseContainer, PopBrowseContent} from '../PopBrowse/PopBrowse.styled';
 import { Calendar } from "../../Calendar/Calendar";
 import { Link } from "react-router-dom";
 import { appRoutes } from "../../../lib/appRoutes";
 import { deleteTask, getTasks, addTasks, editTasks } from "../../../api";
+import { CardsContext } from "../../../contexts/cards";
 
 function PopNewCard() {
+  const {cards, setCards} = useContext(CardsContext);
 
   const [selected, setSelected] = useState();
   const [newTask, setNewTask] = useState({
@@ -209,8 +211,16 @@ function PopNewCard() {
 
               </div>
             </div>
-            <Link to={appRoutes.MAIN} onClick={( )=> addTasks({ token: userData.token, title: newCard.title, topic: newCard.topic, status: newCard.status, description:newCard.description })
-}>
+            <Link to={appRoutes.MAIN} onClick={( )=> {addTasks({ token: userData.token, title: newCard.title, topic: newCard.topic, status: newCard.status, description:newCard.description })
+.then (()=>{
+  return  getTasks({ token: userData.token })
+  
+})
+.then((data) => {
+  setCards(data.tasks);
+ 
+})            
+}}>
                <button  className="form-new__create _hover01" id="btnCreate">
               Создать задачу
                </button>
