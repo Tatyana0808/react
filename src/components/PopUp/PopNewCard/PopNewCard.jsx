@@ -15,7 +15,7 @@ function PopNewCard() {
     title: "",
     topic: "",
     description: "",
-  
+    status: "",
     
   });
 
@@ -26,6 +26,7 @@ function PopNewCard() {
     console.log(newCard);
     
     await addTasks({ token: userData.token, title: newCard.title, topic: newCard.topic, status: newCard.status, description:newCard.description })
+   
     .then ((response) => {
       setCards(response.tasks);
       })
