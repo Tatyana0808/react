@@ -72,7 +72,7 @@ export async function addTasks({ title, topic, status, description, date }){
       date, 
     }),
 })
-
+.then(res => console.log(res));
 const data = await response.json();
 return data;
 

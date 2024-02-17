@@ -211,7 +211,8 @@ function PopNewCard() {
 
               </div>
             </div>
-            <Link to={appRoutes.MAIN} onClick={( )=> {addTasks({ token: userData.token, title: newCard.title, topic: newCard.topic, status: newCard.status, description:newCard.description })
+            <Link to={appRoutes.MAIN} 
+            onClick={( )=> {addCard({...newCard})
 .then (()=>{
   return  getTasks({ token: userData.token })
   
