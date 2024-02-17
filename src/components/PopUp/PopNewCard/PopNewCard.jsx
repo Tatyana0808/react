@@ -9,7 +9,7 @@ import { CardsContext } from "../../../contexts/cards";
 
 function PopNewCard() {
   const {cards, setCards} = useContext(CardsContext);
-
+  //const {userData} = useUser();
   const [selected, setSelected] = useState();
   const [newTask, setNewTask] = useState({
     title: "",
@@ -26,8 +26,11 @@ function PopNewCard() {
     console.log(newCard);
     
     await addTasks({ token: userData.token, title: newCard.title, topic: newCard.topic, status: newCard.status, description:newCard.description })
-
-    }
+    .then ((response) => {
+      setCards(response.tasks);
+      })
+      .then(res => console.log(res))
+}
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -212,17 +215,8 @@ function PopNewCard() {
               </div>
             </div>
             <Link to={appRoutes.MAIN} 
-            onClick={( )=> {addCard({...newCard})
-.then (()=>{
-  return  getTasks({ token: userData.token })
-  
-})
-.then((data) => {
-  setCards(data.tasks);
- 
-})            
-}}>
-               <button  className="form-new__create _hover01" id="btnCreate">
+              >
+               <button onClick={addCard} className="form-new__create _hover01" id="btnCreate">
               Создать задачу
                </button>
             </Link>
