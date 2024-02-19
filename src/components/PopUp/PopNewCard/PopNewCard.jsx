@@ -2,37 +2,44 @@ import { Container } from "../../Common/Common.styled";
 import {useContext, useState} from "react";
 import {PopBrowseContainer, PopBrowseContent} from '../PopBrowse/PopBrowse.styled';
 import { Calendar } from "../../Calendar/Calendar";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { appRoutes } from "../../../lib/appRoutes";
 import { deleteTask, getTasks, addTasks, editTasks } from "../../../api";
 import { CardsContext } from "../../../contexts/cards";
+import { useUser } from "../../../hooks/useUser";
 
 function PopNewCard() {
+   const navigate = useNavigate();
   const {cards, setCards} = useContext(CardsContext);
-  //const {userData} = useUser();
+ // const {userData} = useUser();
   const [selected, setSelected] = useState();
   const [newTask, setNewTask] = useState({
     title: "",
     topic: "",
     description: "",
-    status: "",
+    
     
   });
 
-  const addCard = async() => {
-    let newCard = {
-      ...newTask, data:selected
-      }
-    console.log(newCard);
-    
-    await addTasks({ token: userData.token, title: newCard.title, topic: newCard.topic, status: newCard.status, description:newCard.description })
-   
-    .then ((response) => {
-      setCards(response.tasks);
-      })
-      .then(res => console.log(res))
-}
+  function addCard () {
+    try {
 
+    
+    const newCard = {
+      ...newTask, data:selected,
+     
+      };
+    
+    
+     addTasks(newCard).then((data)=> {
+      setNewTask(data);
+        navigate(appRoutes.MAIN);
+    });
+    } catch (error) {
+      alert(error.message);
+    }
+    
+  }
   const handleInputChange = (e) => {
     const { name, value } = e.target;
 
@@ -43,7 +50,36 @@ function PopNewCard() {
   };
 
 
-  
+// const {userData} = useUser();
+//   const {cards, setCards} = useContext(CardsContext);
+//    const [selected, setSelected] = useState();
+//   const { setTasks } = useUser();
+//   const navigate = useNavigate();
+//   const handleInputChange = (e) => {
+//     const { name, value } = e.target;
+//     setNewTask({
+//       ...newTask,
+//       [name]: value,
+//     });
+//   };
+//   const [newTask, setNewTask] = useState({
+//     title: "",
+//     topic: "",
+//     description: "",
+//   });
+//   const addCard = async () => {
+//     let newCard = {
+//       ...newTask,
+//       date: selected,
+//     };
+
+//     addTasks(newCard).then(() => {
+//       getTasks().then((res) => {
+//         setTasks(res.tasks);
+//         navigate(appRoutes.MAIN);
+//       });
+//     });
+//   };
 
   return (
     <PopBrowseContent id="popBrowse">
