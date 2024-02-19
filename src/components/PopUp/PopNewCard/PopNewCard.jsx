@@ -11,7 +11,7 @@ import { useUser } from "../../../hooks/useUser";
 function PopNewCard() {
    const navigate = useNavigate();
   const {cards, setCards} = useContext(CardsContext);
- // const {userData} = useUser();
+  const {userData} = useUser();
   const [selected, setSelected] = useState();
   const [newTask, setNewTask] = useState({
     title: "",
@@ -34,7 +34,10 @@ function PopNewCard() {
      addTasks(newCard).then((data)=> {
       setNewTask(data);
         navigate(appRoutes.MAIN);
-    });
+    })
+    .then((data) => {
+      setCards(data.tasks)
+    })
     } catch (error) {
       alert(error.message);
     }
