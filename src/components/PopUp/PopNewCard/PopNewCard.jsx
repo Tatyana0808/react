@@ -33,7 +33,7 @@ function PopNewCard() {
     
      addTasks(newCard).then((data)=> {
       setNewTask(data);
-        navigate(appRoutes.MAIN);
+        
     })
     .then((data) => {
       setCards(data)
