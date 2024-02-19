@@ -36,7 +36,7 @@ function PopNewCard() {
         navigate(appRoutes.MAIN);
     })
     .then((data) => {
-      setCards(data.tasks)
+      setCards(data)
     })
     } catch (error) {
       alert(error.message);

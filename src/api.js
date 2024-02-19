@@ -61,7 +61,7 @@ export async function addTasks({ title, topic, status, description, date }){
   const response = await fetch(API_URL, {
     method: 'POST',
     headers: {
-      Authorization: `Bearer ${user?.token}`,
+      Authorization: `Bearer ${token}`,
     },
     
     body: JSON.stringify({
@@ -72,9 +72,7 @@ export async function addTasks({ title, topic, status, description, date }){
       date, 
     }),
 })
-.then(res => console.log(res));
-const data = await response.json();
-return data;
+
 
 }
 
