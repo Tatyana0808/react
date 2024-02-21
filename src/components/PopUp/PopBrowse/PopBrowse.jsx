@@ -36,7 +36,7 @@ function PopBrowse() {
     status: card.status,
   });
 
-  const statuses = ["Без статуса", "Нужно сделать", "Готово"]
+  const statuses = ["Без статуса", "Нужно сделать","В работе", "Тестирование","Готово"]
   const addCard = async () => {
     let newCard = {
       ...newTask, data: selected
