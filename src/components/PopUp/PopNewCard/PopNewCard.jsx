@@ -17,7 +17,7 @@ function PopNewCard() {
     title: "",
     topic: "",
     description: "",
-    
+    status: "Без статуса",
     
   });
 
@@ -26,18 +26,16 @@ function PopNewCard() {
 
     
     const newCard = {
-      ...newTask, data:selected,
+      ...newTask, date:selected,
      
       };
     
-    
+    console.log(newCard);
      addTasks(newCard).then((data)=> {
-      setNewTask(data);
+      setCards(data.tasks);
         
     })
-    .then((data) => {
-      setCards(data)
-    })
+    
     } catch (error) {
       alert(error.message);
     }

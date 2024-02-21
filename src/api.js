@@ -72,7 +72,7 @@ export async function addTasks({ title, topic, status, description, date }){
       date, 
     }),
 })
-
+return response.json()
 
 }
 
@@ -108,7 +108,7 @@ export async function deleteTask({ id, token }) {
 
 }
 
-export async function editTasks({id, token, title, topic, status, description, date}){
+export async function editTasks({id, title, topic, status, description, date}){
   const response = await fetch(API_URL + `/${id}`, {
     method: 'PUT',
     

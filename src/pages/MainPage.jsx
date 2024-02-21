@@ -65,7 +65,7 @@ export default function MainPage() {
     //         setTheme('light');
     //     }
     // };
-
+console.log(cards);
     return (
         <>
             <Wrapper>
