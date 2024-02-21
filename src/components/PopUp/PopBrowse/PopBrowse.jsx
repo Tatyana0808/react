@@ -90,8 +90,9 @@ function PopBrowse() {
             <PopBrowseStatusStatus>
               <p className="status__p subttl">Статус</p>
               <div className="status__themes">
-                {statuses.map(el => (
-                  <div className= {`status__theme ${el===card.status ? '_gray':""}`}>
+                {statuses.map((el,item)=> (
+                  <div key={item}
+                  className= {`status__theme ${el===card.status ? '_gray':""}`}>
                     <p>{el}</p>
                   </div>
                 ))}
