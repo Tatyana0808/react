@@ -45,10 +45,10 @@ function Header({ addCard, userData, toggleTheme}) {
               {/* <a href="">x</a> */}
               <p className="pop-user-set__name">{userData.name}</p>
               <p className="pop-user-set__mail">{userData.login}</p>
-              <div className="pop-user-set__theme">
+              {/* <div className="pop-user-set__theme">
                 <p>Темная тема</p>
                 <input type="checkbox" className="checkbox" name="checkbox" />
-              </div>
+              </div> */}
               <button type="button" className="_hover03">
                 <Link to={appRoutes.EXIT}>Выйти</Link>
               </button>
