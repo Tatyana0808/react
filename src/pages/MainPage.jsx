@@ -80,9 +80,9 @@ console.log(cards);
                 ) : (
                 <Main isLoaded={isLoaded} cardList={cards} />
                 )}
-                <Link to={appRoutes.LOGIN}>Войти</Link>
+                {/* <Link to={appRoutes.LOGIN}>Войти</Link>
                 <br/>
-                <Link to={appRoutes.REGISTER}>Зарегистрироваться</Link>
+                <Link to={appRoutes.REGISTER}>Зарегистрироваться</Link> */}
 
 
             </Wrapper>
