@@ -11,7 +11,7 @@ import { CardsContext } from "../../../contexts/cards";
 
 function PopBrowse() {
 
- 
+
   const [isEdit, setIsEdit] = useState(false)
 
   //const [card, setCard] = useState
@@ -96,19 +96,19 @@ function PopBrowse() {
               <div className="status__themes">
                 {isEdit ? (statuses.map((el, item) => (
                   <div onClick={() => setStatus(el.status)}
-                   key={item}
+                    key={item}
                     className={`status__theme ${el === card.status ? '_gray' : ""}`}>
                     <p>{el}</p>
                   </div>
                 ))
 
                 ) : (<div
-                  className="status__theme _gray">
+                  className="status__theme_gray">
                   <p>{card.status}</p>
                 </div>)
                 }
 
-               
+
 
               </div>
             </PopBrowseStatusStatus>
@@ -139,53 +139,73 @@ function PopBrowse() {
             </div>
 
             <div className="pop-browse__btn-browse ">
-              <div className="btn-group">
-                <button onClick={editTaskHandler} className="btn-browse__edit _btn-bor _hover03">
-                  <a href="#">Редактировать задачу</a>
-                </button>
-                <button
-                  onClick={() => {
-                    deleteTask({ id: cardId, token: userData.token }).then(() => {
-                      return getTasks({ token: userData.token })
 
-                    })
-                      .then((data) => {
-                        setCards(data.tasks);
-                        navigate(appRoutes.MAIN)
+
+              {isEdit && <>
+
+                <div className="pop-browse__btn-edit _hide">
+                  <div className="btn-group">
+
+                    <button className="btn-edit__edit _btn-bg _hover01">
+                      <a href="#">Сохранить</a>
+                    </button>
+                    <button className="btn-edit__edit _btn-bor _hover03">
+                      <a href="#">Отменить</a>
+                    </button>
+                    <button
+                      className="btn-edit__delete _btn-bor _hover03"
+                      id="btnDelete"
+                    >
+                      <a href="#">Удалить задачу</a>
+                    </button>
+                  </div>
+                  <button className="btn-edit__close _btn-bg _hover01">
+                    <a href="#">Закрыть</a>
+                  </button>
+                </div>
+
+
+              </>}
+
+              {!isEdit && <>
+                <div className="btn-group">
+                  <button onClick={editTaskHandler} className="btn-browse__edit _btn-bor _hover03">
+                    <a href="#">Редактировать задачу</a>
+                  </button>
+                  <button
+                    onClick={() => {
+                      deleteTask({ id: cardId, token: userData.token }).then(() => {
+                        return getTasks({ token: userData.token })
+
                       })
-                  }}
+                        .then((data) => {
+                          setCards(data.tasks);
+                          navigate(appRoutes.MAIN)
+                        })
+                    }}
 
-                  className="btn-browse__delete _btn-bor _hover03">
-                  <a href="#">Удалить задачу</a>
-                </button>
-              </div>
-              <Link to={appRoutes.MAIN}>
-                <button className="btn-browse__close _btn-bg _hover01">
-                  Закрыть
-                </button>
-              </Link>
+                    className="btn-browse__delete _btn-bor _hover03">
+                    <a href="#">Удалить задачу</a>
+                  </button>
+                </div>
+                <Link to={appRoutes.MAIN}>
+                  <button className="btn-browse__close _btn-bg _hover01">
+                    Закрыть
+                  </button>
+                </Link>
+
+
+              </>}
+
+
+
+
 
             </div>
-            <div className="pop-browse__btn-edit _hide">
-              <div className="btn-group">
 
-                <button className="btn-edit__edit _btn-bg _hover01">
-                  <a href="#">Сохранить</a>
-                </button>
-                <button className="btn-edit__edit _btn-bor _hover03">
-                  <a href="#">Отменить</a>
-                </button>
-                <button
-                  className="btn-edit__delete _btn-bor _hover03"
-                  id="btnDelete"
-                >
-                  <a href="#">Удалить задачу</a>
-                </button>
-              </div>
-              <button className="btn-edit__close _btn-bg _hover01">
-                <a href="#">Закрыть</a>
-              </button>
-            </div>
+
+
+
           </PopBrowseContents>
         </PopBrowseBlock>
 
