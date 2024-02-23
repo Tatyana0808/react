@@ -37,6 +37,12 @@ function PopBrowse() {
       [name]: value,
     });
   };
+ 
+const handleEditMode = () => {
+
+  setIsEdit(!isEdit);
+
+};
 
   const [newTask, setNewTask] = useState({
     title: card.title,
@@ -152,7 +158,7 @@ function PopBrowse() {
 
                 <div className="btn-group">
 
-                  <button className="btn-edit__edit _btn-bg _hover01">
+                  <button className="btn-edit__edit _btn-bg _hover01"onClick={handleEditMode}>
                     <a href="#">Сохранить</a>
                   </button>
                   <button className="btn-edit__edit _btn-bor _hover03" onClick={cancelClick}>
