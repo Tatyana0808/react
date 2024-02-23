@@ -11,8 +11,14 @@ import { CardsContext } from "../../../contexts/cards";
 
 function PopBrowse() {
 
-
+  const [storedValue, setStoredValue] = useState({});
   const [isEdit, setIsEdit] = useState(false)
+
+  const cancelClick = () => {
+    //setModalData(storedValue)
+    setStoredValue({})
+    setIsEdit(false)
+  }
 
   //const [card, setCard] = useState
   const navigate = useNavigate();
@@ -149,19 +155,32 @@ function PopBrowse() {
                     <button className="btn-edit__edit _btn-bg _hover01">
                       <a href="#">Сохранить</a>
                     </button>
-                    <button className="btn-edit__edit _btn-bor _hover03">
+                    <button className="btn-edit__edit _btn-bor _hover03" onClick={cancelClick}>
                       <a href="#">Отменить</a>
                     </button>
                     <button
+                     onClick={() => {
+                      deleteTask({ id: cardId, token: userData.token }).then(() => {
+                        return getTasks({ token: userData.token })
+
+                      })
+                        .then((data) => {
+                          setCards(data.tasks);
+                          navigate(appRoutes.MAIN)
+                        })
+                    }}
                       className="btn-edit__delete _btn-bor _hover03"
                       id="btnDelete"
                     >
                       <a href="#">Удалить задачу</a>
                     </button>
                   </div>
+                  <Link to={appRoutes.MAIN}>
                   <button className="btn-edit__close _btn-bg _hover01">
                     <a href="#">Закрыть</a>
                   </button>
+                  </Link>
+                  
                 
 
 
