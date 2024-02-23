@@ -11,7 +11,7 @@ import { CardsContext } from "../../../contexts/cards";
 
 function PopBrowse() {
 
- const [status, setStatus] = useState(card.status)
+ 
   const [isEdit, setIsEdit] = useState(false)
 
   //const [card, setCard] = useState
@@ -22,6 +22,7 @@ function PopBrowse() {
   const { cardId } = useParams()
   console.log(cardId);
   const card = cards.find(el => el._id === cardId);
+  const [status, setStatus] = useState(card.status)
   const handleInputChange = (e) => {
     const { name, value } = e.target;
 
