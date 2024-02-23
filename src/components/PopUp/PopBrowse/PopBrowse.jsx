@@ -11,6 +11,9 @@ import { CardsContext } from "../../../contexts/cards";
 
 function PopBrowse() {
 
+ const [status, setStatus] = useState(card.status)
+  const [isEdit, setIsEdit] = useState(false)
+
   //const [card, setCard] = useState
   const navigate = useNavigate();
   const [selected, setSelected] = useState();
@@ -36,7 +39,7 @@ function PopBrowse() {
     status: card.status,
   });
 
-  const statuses = ["Без статуса", "Нужно сделать","В работе", "Тестирование","Готово"]
+  const statuses = ["Без статуса", "Нужно сделать", "В работе", "Тестирование", "Готово"]
   const addCard = async () => {
     let newCard = {
       ...newTask, data: selected
@@ -68,8 +71,8 @@ function PopBrowse() {
   }, [selected])
 
   function editTaskHandler() {
-
-    editTasks({ id: cardId, token: userData.token, title: newTask.title, date: newTask.date, description: newTask.description, status: newTask.status, topic: newTask.topic })
+    setIsEdit(true)
+    //editTasks({ id: cardId, token: userData.token, title: newTask.title, date: newTask.date, description: newTask.description, status: newTask.status, topic: newTask.topic })
   }
 
 
@@ -90,14 +93,22 @@ function PopBrowse() {
             <PopBrowseStatusStatus>
               <p className="status__p subttl">Статус</p>
               <div className="status__themes">
-                {statuses.map((el,item)=> (
-                  <div key={item}
-                  className= {`status__theme ${el===card.status ? '_gray':""}`}>
+                {isEdit ? (statuses.map((el, item) => (
+                  <div onClick={() => setStatus(el.status)}
+                   key={item}
+                    className={`status__theme ${el === card.status ? '_gray' : ""}`}>
                     <p>{el}</p>
                   </div>
-                ))}
+                ))
 
-                
+                ) : (<div
+                  className="status__theme _gray">
+                  <p>{card.status}</p>
+                </div>)
+                }
+
+               
+
               </div>
             </PopBrowseStatusStatus>
             <div className="pop-browse__wrap">
