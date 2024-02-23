@@ -3,7 +3,7 @@ import { Container } from "../Common/Common.styled";
 import { HeaderBlock, HeaderWrapper, HeaderNav, HeaderLogo, HeaderBtnMainNew, HeaderUser } from "./Header.styled";
 import { Link } from "react-router-dom";
 import { appRoutes } from "../../lib/appRoutes";
-function Header({ addCard, userData, toggleTheme}) {
+function Header({ addCard, userData, toggleTheme }) {
   const [isOpened, setIsOpened] = useState(false);
   function togglePopUp() {
     setIsOpened((prev) => !prev)
@@ -33,9 +33,9 @@ function Header({ addCard, userData, toggleTheme}) {
 
               Создать новую задачу
             </HeaderBtnMainNew>
-            
-            <HeaderUser 
-            onClick={togglePopUp}>
+
+            <HeaderUser
+              onClick={togglePopUp}>
               {userData.login}
             </HeaderUser>
             {isOpened && <div

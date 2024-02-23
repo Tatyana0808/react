@@ -11,9 +11,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <BrowserRouter>
       <UserProvider>
         <CardsProvider>
-       <App />
-       </CardsProvider>
+          <App />
+        </CardsProvider>
       </UserProvider>
-     </BrowserRouter>
+    </BrowserRouter>
   </React.StrictMode>
 );

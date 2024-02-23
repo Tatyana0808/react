@@ -41,9 +41,9 @@ function Card({ name, theme, date, id }) {
         </CardGroup>
 
         <CardContent>
-          
-            <h3 className="card__title"> {name}</h3>
-          
+
+          <h3 className="card__title"> {name}</h3>
+
 
           <CardDate>
             <CardDateSvg

@@ -1,6 +1,6 @@
 import { Container } from "../../Common/Common.styled";
-import {useContext, useState} from "react";
-import {PopBrowseContainer, PopBrowseContent} from '../PopBrowse/PopBrowse.styled';
+import { useContext, useState } from "react";
+import { PopBrowseContainer, PopBrowseContent } from '../PopBrowse/PopBrowse.styled';
 import { Calendar } from "../../Calendar/Calendar";
 import { Link, useNavigate } from "react-router-dom";
 import { appRoutes } from "../../../lib/appRoutes";
@@ -9,37 +9,37 @@ import { CardsContext } from "../../../contexts/cards";
 import { useUser } from "../../../hooks/useUser";
 
 function PopNewCard() {
-   const navigate = useNavigate();
-  const {cards, setCards} = useContext(CardsContext);
-  const {userData} = useUser();
+  const navigate = useNavigate();
+  const { cards, setCards } = useContext(CardsContext);
+  const { userData } = useUser();
   const [selected, setSelected] = useState();
   const [newTask, setNewTask] = useState({
     title: "",
     topic: "",
     description: "",
     status: "Без статуса",
-    
+
   });
 
-  function addCard () {
+  function addCard() {
     try {
 
-    
-    const newCard = {
-      ...newTask, date:selected,
-     
+
+      const newCard = {
+        ...newTask, date: selected,
+
       };
-    
-    console.log(newCard);
-     addTasks(newCard).then((data)=> {
-      setCards(data.tasks);
-        
-    })
-    
+
+      console.log(newCard);
+      addTasks(newCard).then((data) => {
+        setCards(data.tasks);
+
+      })
+
     } catch (error) {
       alert(error.message);
     }
-    
+
   }
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -51,36 +51,36 @@ function PopNewCard() {
   };
 
 
-// const {userData} = useUser();
-//   const {cards, setCards} = useContext(CardsContext);
-//    const [selected, setSelected] = useState();
-//   const { setTasks } = useUser();
-//   const navigate = useNavigate();
-//   const handleInputChange = (e) => {
-//     const { name, value } = e.target;
-//     setNewTask({
-//       ...newTask,
-//       [name]: value,
-//     });
-//   };
-//   const [newTask, setNewTask] = useState({
-//     title: "",
-//     topic: "",
-//     description: "",
-//   });
-//   const addCard = async () => {
-//     let newCard = {
-//       ...newTask,
-//       date: selected,
-//     };
+  // const {userData} = useUser();
+  //   const {cards, setCards} = useContext(CardsContext);
+  //    const [selected, setSelected] = useState();
+  //   const { setTasks } = useUser();
+  //   const navigate = useNavigate();
+  //   const handleInputChange = (e) => {
+  //     const { name, value } = e.target;
+  //     setNewTask({
+  //       ...newTask,
+  //       [name]: value,
+  //     });
+  //   };
+  //   const [newTask, setNewTask] = useState({
+  //     title: "",
+  //     topic: "",
+  //     description: "",
+  //   });
+  //   const addCard = async () => {
+  //     let newCard = {
+  //       ...newTask,
+  //       date: selected,
+  //     };
 
-//     addTasks(newCard).then(() => {
-//       getTasks().then((res) => {
-//         setTasks(res.tasks);
-//         navigate(appRoutes.MAIN);
-//       });
-//     });
-//   };
+  //     addTasks(newCard).then(() => {
+  //       getTasks().then((res) => {
+  //         setTasks(res.tasks);
+  //         navigate(appRoutes.MAIN);
+  //       });
+  //     });
+  //   };
 
   return (
     <PopBrowseContent id="popBrowse">
@@ -105,7 +105,7 @@ function PopNewCard() {
                   <textarea value={newTask.title}
                     onChange={handleInputChange}
                     className="form-new__input"
-                    
+
                     name="title"
                     id="formTitle"
                     placeholder="Введите название задачи..."
@@ -124,7 +124,7 @@ function PopNewCard() {
                   />
                 </div>
               </form>
-              <Calendar selected={selected} setSelected={setSelected}/>
+              <Calendar selected={selected} setSelected={setSelected} />
 
               {/* <div className="pop-new-card__calendar calendar">
                 <p className="calendar__ttl subttl">Даты</p>
@@ -233,9 +233,9 @@ function PopNewCard() {
                 <p className="_purple">Copywriting</p>
               </div> */}
 
-               <div className="prod_checbox">
+                <div className="prod_checbox">
                   <div className="radio-toolbar">
-                    <input type="radio" id="radio1" name="topic" onChange={handleInputChange} value="Web Design"  />
+                    <input type="radio" id="radio1" name="topic" onChange={handleInputChange} value="Web Design" />
                     <label htmlFor="radio1">Web Design</label>
 
                     <input type="radio" id="radio2" name="topic" onChange={handleInputChange} value="Research" />
@@ -252,11 +252,11 @@ function PopNewCard() {
 
               </div>
             </div>
-            <Link to={appRoutes.MAIN} 
-              >
-               <button onClick={addCard} className="form-new__create _hover01" id="btnCreate">
-              Создать задачу
-               </button>
+            <Link to={appRoutes.MAIN}
+            >
+              <button onClick={addCard} className="form-new__create _hover01" id="btnCreate">
+                Создать задачу
+              </button>
             </Link>
           </div>
         </div>
