@@ -1,4 +1,3 @@
-import { Container } from "../../Common/Common.styled";
 import { useContext, useState } from "react";
 import { PopBrowseContainer, PopBrowseContent } from '../PopBrowse/PopBrowse.styled';
 import { Calendar } from "../../Calendar/Calendar";

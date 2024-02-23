@@ -1,6 +1,3 @@
-import { useNavigate } from "react-router-dom";
-import { appRoutes } from "./lib/appRoutes";
-
 const token = 'asb4c4boc86gasb4c4boc86g37w3cc3bo3b83k4g37k3bk3cg3c03ck4k';
 const API_URL_USER = 'https://wedev-api.sky.pro/api/user';
 const  API_URL = 'https://wedev-api.sky.pro/api/kanban';

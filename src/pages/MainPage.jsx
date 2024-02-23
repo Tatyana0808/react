@@ -6,7 +6,7 @@ import '../App';
 //import PopNewCard from '../components/PopUp/PopNewCard/PopNewCard';
 import Main from '../components/Main/Main'
 import { appRoutes } from '../lib/appRoutes';
-import { Link, Outlet, useNavigate } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import { useUser } from '../hooks/useUser';
 import { getTasks } from '../api';
 import { useContext, useEffect, useState } from 'react';

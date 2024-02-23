@@ -1,7 +1,7 @@
 
 
-import { useEffect, useState } from 'react';
-import { cardList } from './data';
+import { useState } from 'react';
+
 import { GlobalStyle } from './Global.styled';
 import MainPage from './pages/MainPage';
 import { Route, Routes } from 'react-router-dom';
@@ -10,10 +10,10 @@ import CardPage from './pages/CardPage';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import RegisterPage from './pages/RegisterPage';
 import LoginPage from './pages/LoginPage';
-import { getTasks } from './api';
+
 import "./App.css"
 import PopExit from './components/PopUp/PopExit/PopExit';
-import { useUser } from './hooks/useUser';
+
 
 import NotFoundPage from './pages/NotFoundPage';
 import CardNewPage from './pages/CardNewPege';
