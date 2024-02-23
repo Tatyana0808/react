@@ -78,7 +78,7 @@ function PopBrowse() {
 
 
 
-  return (
+  return (<>
     <PopBrowseContent id="popBrowse">
       <PopBrowseContainer>
 
@@ -143,7 +143,7 @@ function PopBrowse() {
 
               {isEdit && <>
 
-                <div className="pop-browse__btn-edit _hide">
+                
                   <div className="btn-group">
 
                     <button className="btn-edit__edit _btn-bg _hover01">
@@ -162,7 +162,7 @@ function PopBrowse() {
                   <button className="btn-edit__close _btn-bg _hover01">
                     <a href="#">Закрыть</a>
                   </button>
-                </div>
+                
 
 
               </>}
@@ -211,6 +211,7 @@ function PopBrowse() {
 
       </PopBrowseContainer>
     </PopBrowseContent>
-  )
+  
+  </>)
 }
 export default PopBrowse;
