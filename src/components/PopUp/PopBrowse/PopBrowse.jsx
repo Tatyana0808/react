@@ -79,7 +79,7 @@ function PopBrowse() {
 
   function editTaskHandler() {
     setIsEdit(true)
-    //editTasks({ id: cardId, token: userData.token, title: newTask.title, date: newTask.date, description: newTask.description, status: newTask.status, topic: newTask.topic })
+    editTasks({ id: cardId, token: userData.token, title: newTask.title, date: newTask.date, description: newTask.description, status: newTask.status, topic: newTask.topic })
   }
 
 
@@ -177,7 +177,7 @@ function PopBrowse() {
                   </div>
                   <Link to={appRoutes.MAIN}>
                   <button className="btn-edit__close _btn-bg _hover01">
-                    <a href="#">Закрыть</a>
+                    Закрыть
                   </button>
                   </Link>
                   
