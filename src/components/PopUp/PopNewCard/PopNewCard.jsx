@@ -1,9 +1,9 @@
-import { useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import { PopBrowseContainer, PopBrowseContent } from '../PopBrowse/PopBrowse.styled';
 import { Calendar } from "../../Calendar/Calendar";
 import { Link, useNavigate } from "react-router-dom";
 import { appRoutes } from "../../../lib/appRoutes";
-import { deleteTask, getTasks, addTasks, editTasks } from "../../../api";
+import {  addTasks, } from "../../../api";
 import { CardsContext } from "../../../contexts/cards";
 import { useUser } from "../../../hooks/useUser";
 
@@ -11,7 +11,7 @@ function PopNewCard() {
   const navigate = useNavigate();
   const { cards, setCards } = useContext(CardsContext);
   const { userData } = useUser();
-  const [selected, setSelected] = useState();
+  const [selected, setSelected] = React.useState(null);
   const [newTask, setNewTask] = useState({
     title: "",
     topic: "",

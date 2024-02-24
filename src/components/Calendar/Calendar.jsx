@@ -12,7 +12,8 @@ export function Calendar({ selected, setSelected }) {
     footer = <p>You picked {format(selected, 'PP', { locale: ru })}.</p>;
   }
   return (
-    <DayPicker locale={ru}
+    <DayPicker
+      locale={ru}
       mode="single"
       selected={selected}
       onSelect={setSelected}
