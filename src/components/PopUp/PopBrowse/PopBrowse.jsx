@@ -29,6 +29,7 @@ function PopBrowse() {
   console.log(cardId);
   const card = cards.find(el => el._id === cardId);
   const [status, setStatus] = useState(card.status)
+  console.log(status);
   const handleInputChange = (e) => {
     const { name, value } = e.target;
 
@@ -37,12 +38,15 @@ function PopBrowse() {
       [name]: value,
     });
   };
- 
-const handleEditMode = () => {
 
-  setIsEdit(!isEdit);
-
-};
+  const handleEditMode = () => { 
+    const newCards = cards.map(item => {
+    if (item._id === cardId) { 
+    return { ...newTask, status } } 
+    return item 
+  }) 
+  setCards(newCards); 
+  setIsEdit(!isEdit); };
 
   const [newTask, setNewTask] = useState({
     title: card.title,
@@ -51,7 +55,7 @@ const handleEditMode = () => {
     date: card.date,
     status: card.status,
   });
-
+  console.log(newTask);
   const statuses = ["Без статуса", "Нужно сделать", "В работе", "Тестирование", "Готово"]
   const addCard = async () => {
     let newCard = {
@@ -85,7 +89,7 @@ const handleEditMode = () => {
 
   function editTaskHandler() {
     setIsEdit(true)
-    editTasks({ id: cardId, token: userData.token, title: newTask.title, date: newTask.date, description: newTask.description, status: newTask.status, topic: newTask.topic })
+    // editTasks({ id: cardId, token: userData.token, title: newTask.title, date: newTask.date, description: newTask.description, status: newTask.status, topic: newTask.topic })
   }
 
 
@@ -107,9 +111,9 @@ const handleEditMode = () => {
               <p className="status__p subttl">Статус</p>
               <div className="status__themes">
                 {isEdit ? (statuses.map((el, item) => (
-                  <div onClick={() => setStatus(el.status)}
+                  <div onClick={() => setStatus(el)}
                     key={item}
-                    className={`status__theme ${el === card.status ? '_gray' : ""}`}>
+                    className={`status__theme ${el === status ? '_gray' : ""}`}>
                     <p>{el}</p>
                   </div>
                 ))
@@ -158,7 +162,7 @@ const handleEditMode = () => {
 
                 <div className="btn-group">
 
-                  <button className="btn-edit__edit _btn-bg _hover01"onClick={handleEditMode}>
+                  <button className="btn-edit__edit _btn-bg _hover01" onClick={handleEditMode}>
                     <a href="#">Сохранить</a>
                   </button>
                   <button className="btn-edit__edit _btn-bor _hover03" onClick={cancelClick}>
