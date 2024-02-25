@@ -42,7 +42,12 @@ function PopBrowse() {
   const handleEditMode = () => { 
     const newCards = cards.map(item => {
     if (item._id === cardId) { 
-    return { ...newTask, status } } 
+    return { 
+      ...item,
+      ...newTask,
+       status: status
+      } 
+    } 
     return item 
   }) 
   setCards(newCards); 
@@ -138,7 +143,9 @@ function PopBrowse() {
                   <label htmlFor="textArea01" className="subttl">
                     Описание задачи
                   </label>
+                   
                   <textarea value={newTask.description}
+                    disabled={!isEdit}
                     onChange={handleInputChange}
                     className="form-browse__area"
                     name="description"
@@ -150,7 +157,7 @@ function PopBrowse() {
                 </div>
               </form>
 
-              <Calendar selected={selected} setSelected={setSelected} />
+              <Calendar disabled={!isEdit} selected={selected} setSelected={setSelected} />
 
             </div>
 

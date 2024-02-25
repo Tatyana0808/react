@@ -4,7 +4,7 @@ import { DayPicker } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
 import ru from "date-fns/locale/ru"
 
-export function Calendar({ selected, setSelected }) {
+export function Calendar({ selected, setSelected, disabled }) {
 
 
   let footer = <p>Please pick a day.</p>;
@@ -13,6 +13,7 @@ export function Calendar({ selected, setSelected }) {
   }
   return (
     <DayPicker
+      disabled={disabled}
       locale={ru}
       mode="single"
       selected={selected}
