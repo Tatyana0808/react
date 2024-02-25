@@ -10,7 +10,8 @@ import { CardsContext } from "../../../contexts/cards";
 
 
 function PopBrowse() {
-
+ // let now = new Date().toLocaleString();
+ // console.log(now);
   const [storedValue, setStoredValue] = useState({});
   const [isEdit, setIsEdit] = useState(false)
 
@@ -64,7 +65,7 @@ function PopBrowse() {
   const statuses = ["Без статуса", "Нужно сделать", "В работе", "Тестирование", "Готово"]
   const addCard = async () => {
     let newCard = {
-      ...newTask, data: selected
+      ...newTask, date: selected
     }
     console.log(newCard);
     await addTasks({ token: userData.token, title: newCard.title, topic: newCard.topic, status: newCard.status, description: newCard.description })
@@ -158,6 +159,7 @@ function PopBrowse() {
               </form>
 
               <Calendar disabled={!isEdit} selected={selected} setSelected={setSelected} />
+              
 
             </div>
 
