@@ -10,8 +10,7 @@ import { CardsContext } from "../../../contexts/cards";
 
 
 function PopBrowse() {
- // let now = new Date().toLocaleString();
- // console.log(now);
+  
   const [storedValue, setStoredValue] = useState({});
   const [isEdit, setIsEdit] = useState(false)
 
@@ -61,6 +60,11 @@ function PopBrowse() {
     date: card.date,
     status: card.status,
   });
+
+ let now = new Date(newTask.date).toLocaleString();
+ console.log(now);
+
+
   console.log(newTask);
   const statuses = ["Без статуса", "Нужно сделать", "В работе", "Тестирование", "Готово"]
   const addCard = async () => {
