@@ -61,9 +61,10 @@ function PopBrowse() {
     status: card.status,
   });
 
- let now = new Date(newTask.date).toLocaleString();
- console.log(now);
-
+ let nowDate = new Date(newTask.date).toLocaleString();
+ console.log(nowDate);
+ console.log(newTask.date);
+ 
 
   console.log(newTask);
   const statuses = ["Без статуса", "Нужно сделать", "В работе", "Тестирование", "Готово"]

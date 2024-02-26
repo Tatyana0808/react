@@ -17,7 +17,7 @@ function PopNewCard() {
     topic: "",
     description: "",
     status: "Без статуса",
-
+    date: "",
   });
 
   function addCard() {
