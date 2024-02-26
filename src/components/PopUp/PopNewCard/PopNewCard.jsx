@@ -250,7 +250,6 @@ function PopNewCard() {
 
 
 
-
               </div>
             </div>
             <Link to={appRoutes.MAIN}
