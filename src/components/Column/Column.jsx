@@ -2,7 +2,7 @@ import Card from "../Card/Card";
 import { Cards, ColumnTitle, MainColumn } from "./Column.styled";
 
 function Column({ title, cardList }) {
- // console.log(cardList[0].id);
+  // console.log(cardList[0].id);
   return (
 
     <MainColumn>
@@ -10,14 +10,14 @@ function Column({ title, cardList }) {
       <ColumnTitle >
         <p>{title}</p>
       </ColumnTitle>
-      
-      <Cards>  
+
+      <Cards>
         {cardList?.map((card) => (
           <Card name={card.title}
-            id={card.id}
-            theme={card.theme}
+            id={card._id}
+            topic={card.topic}
             date={card.date}
-            key={card.id} />
+            key={card._id} />
 
         ))}
 

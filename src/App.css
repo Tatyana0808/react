@@ -104,6 +104,9 @@ body {
   background: #94A6BE;
   color: #FFFFFF;
 }
+._gray p {
+  color: #FFF;
+}
 
 ._active-category {
   opacity: 1 !important;
@@ -681,6 +684,7 @@ body {
   font-size: 14px;
   line-height: 1;
   letter-spacing: -0.14px;
+ 
 }
 
 ._btn-bor {

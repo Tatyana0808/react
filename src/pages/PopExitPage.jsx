@@ -3,8 +3,8 @@ import { PopExitBlock, PopExitContainer, PopExitTtl, PopExitWrapper } from "./Po
 function PopExitPage() {
   return (
     <PopExitWrapper
-     
-    id="popExit">
+
+      id="popExit">
       <PopExitContainer>
 
         <PopExitBlock>

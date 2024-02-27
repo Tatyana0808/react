@@ -20,7 +20,7 @@ function Main({ cardList, isLoaded }) {
         <MainContent>
           {
             isLoaded ? 'Loading'
-             : statusList?.map((item) => (
+              : statusList?.map((item) => (
                 <Column
                   key={item}
                   title={item}
