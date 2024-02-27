@@ -236,13 +236,13 @@ function PopNewCard() {
 
                 <div className="prod_checbox">
                   <div className="radio-toolbar">
-                    <input type="radio" id="radio1" name="topic" onChange={handleInputChange} value="Web Design" />
+                    <input type="radio" id="radio1" name="topic" onChange={handleInputChange} value="Web Design" className="hidden" />
                     <label htmlFor="radio1">Web Design</label>
 
-                    <input type="radio" id="radio2" name="topic" onChange={handleInputChange} value="Research" />
+                    <input type="radio" id="radio2" name="topic" onChange={handleInputChange} value="Research" className="hidden" />
                     <label htmlFor="radio2">Research</label>
 
-                    <input type="radio" id="radio3" name="topic" onChange={handleInputChange} value="Copywriting" />
+                    <input type="radio" id="radio3" name="topic" onChange={handleInputChange} value="Copywriting" className="hidden" />
                     <label htmlFor="radio3">Copywriting</label>
                   </div>
                 </div>

@@ -2,9 +2,11 @@ import { Link } from "react-router-dom";
 import { CardBtn, CardBtnDiv, CardContent, CardDate, CardDateSvg, CardGroup, CardItem, CardTheme, CardThemeText, CardWrapper } from "./Card.styled";
 import { appRoutes } from "../../lib/appRoutes";
 import { format } from "date-fns";
+import { CardsContext } from "../../contexts/cards";
+import { useContext } from "react";
 
 function Card({ name, topic, date, id }) {
-
+  const { setCards } = useContext(CardsContext);
   let color;
   switch (topic) {
     case "Web Design":

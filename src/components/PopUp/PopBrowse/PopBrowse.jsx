@@ -57,7 +57,7 @@ function PopBrowse() {
     title: card.title,
     topic: card.topic,
     description: card.description,
-    date: card.date,
+    date: selected,
     status: card.status,
   });
 
