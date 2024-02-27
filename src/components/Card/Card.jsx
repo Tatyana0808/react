@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import { CardBtn, CardBtnDiv, CardContent, CardDate, CardDateSvg, CardGroup, CardItem, CardTheme, CardThemeText, CardWrapper } from "./Card.styled";
 import { appRoutes } from "../../lib/appRoutes";
+import { format } from "date-fns";
 
-
-function Card({ name, theme, date, id }) {
+function Card({ name, topic, date, id }) {
 
   let color;
-  switch (theme) {
+  switch (topic) {
     case "Web Design":
       color = "_orange";
       break;
@@ -26,7 +26,7 @@ function Card({ name, theme, date, id }) {
 
         <CardGroup>
           <CardTheme $themeColor={color}>
-            <CardThemeText>{theme}</CardThemeText>
+            <CardThemeText>{topic}</CardThemeText>
           </CardTheme>
 
           <Link to={`${appRoutes.CARD}/${id}`}
@@ -74,7 +74,7 @@ function Card({ name, theme, date, id }) {
                 </clipPath>
               </defs>
             </CardDateSvg>
-            <p>{date}</p>
+            <p>{format(date, "dd.MM.yyyy")}</p>
           </CardDate>
         </CardContent>
       </CardWrapper>
