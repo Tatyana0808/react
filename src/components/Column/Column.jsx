@@ -15,7 +15,7 @@ function Column({ title, cardList }) {
         {cardList?.map((card) => (
           <Card name={card.title}
             id={card._id}
-            theme={card.theme}
+            topic={card.topic}
             date={card.date}
             key={card._id} />
 
